@@ -1,0 +1,30 @@
+{
+  "name": "kabar-pather",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "কবর পথের সামগ্রী — সম্মান, যত্ন ও নির্ভরযোগ্য সেবা | Edge Pages, D1 and R2 E-Commerce",
+  "scripts": {
+    "dev": "wrangler pages dev . --d1 DB=kabar-pather-db --r2 PHOTOS_BUCKET=kabar-pather-photos",
+    "db:create": "wrangler d1 create kabar-pather-db",
+    "db:init:local": "wrangler d1 execute kabar-pather-db --local --file=./database/schema.sql",
+    "db:seed:local": "wrangler d1 execute kabar-pather-db --local --file=./database/seed.sql",
+    "db:init": "wrangler d1 execute kabar-pather-db --remote --file=./database/schema.sql",
+    "db:seed": "wrangler d1 execute kabar-pather-db --remote --file=./database/seed.sql",
+    "r2:create": "wrangler r2 bucket create kabar-pather-photos",
+    "deploy": "wrangler pages deploy . --project-name=kabar-pather",
+    "test": "node -c assets/js/theme.js assets/js/optimization.js assets/js/api-client.js assets/js/admin.js assets/js/script.js functions/api/[[path]].js functions/api/_api.js && node tests/verify-all.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^3.111.0"
+  },
+  "keywords": [
+    "edge",
+    "pages",
+    "d1",
+    "r2",
+    "ecommerce",
+    "kabar-pather"
+  ],
+  "author": "Kabar Pather Team",
+  "license": "ISC"
+}

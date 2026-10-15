@@ -1,0 +1,22 @@
+name = "kabar-pather"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = "."
+
+# ══════════════════════════════════════════════════════════════════
+# Edge D1 Database Binding
+# Run: npx wrangler d1 create kabar-pather-db
+# Paste your generated database_id below:
+# ══════════════════════════════════════════════════════════════════
+[[d1_databases]]
+binding = "DB"
+database_name = "kabar-pather-db"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+
+# ══════════════════════════════════════════════════════════════════
+# Edge R2 Storage Bucket Binding (Product Photos)
+# Run: npx wrangler r2 bucket create kabar-pather-photos
+# ══════════════════════════════════════════════════════════════════
+[[r2_buckets]]
+binding = "PHOTOS_BUCKET"
+bucket_name = "kabar-pather-photos"
