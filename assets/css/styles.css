@@ -1459,6 +1459,42 @@ select::placeholder {
   font-weight: 500;
 }
 
+.footer-dev-credit {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.86rem;
+  color: #94a3b8;
+}
+
+.dev-brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #38bdf8;
+  font-family: var(--font-latin);
+  font-weight: 700;
+  text-decoration: none;
+  padding: 3px 9px;
+  border-radius: var(--radius-sm);
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  transition: all var(--transition-fast);
+}
+
+.dev-brand-link:hover {
+  color: #ffffff;
+  background: #0284c7;
+  border-color: #38bdf8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.35);
+}
+
+.dev-brand-icon {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
 /* --------------------------------------------------------------------------
    FLOATING QUICK ACTIONS
    -------------------------------------------------------------------------- */

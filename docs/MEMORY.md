@@ -175,6 +175,14 @@ This document serves as the persistent memory, architectural history, Architectu
   - Full operational capability across edge serverless and offline fallback environments.
   - 100% test coverage with zero unhandled edge cases.
 
+### ADR-016: Agency Attribution & Developer Branding Placement
+- **Status**: Implemented & Verified.
+- **Context**: The development agency (Softece) required professional attribution ("Develop by Softece" linking to `https://softece.com`) on the website without interfering with the solemn Islamic aesthetic or emergency contact workflow.
+- **Decision**: Placed the developer credit in the bottom-right corner of the copyright sub-footer (`.footer-bottom-container`). Styled as an elegant, non-intrusive sapphire badge with an electric icon (`⚡`), subtle hover glow, and responsive auto-centering on mobile devices.
+- **Consequences**:
+  - Respects the respectful Islamic tone of the platform while providing standard developer attribution.
+  - Zero layout shift, zero viewport overflow, and fully responsive across all device breakpoints.
+
 ---
 
 
