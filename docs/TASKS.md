@@ -74,14 +74,16 @@ gantt
 - [x] Unified client API abstraction (`assets/js/api-client.js`) with automatic `localStorage` fallback.
 - [x] Verified zero occurrences of prohibited vendor brand words across the repository.
 
-### ✅ Milestone 5: Complete Documentation Suite (Replicated from Reference)
+### ✅ Milestone 5: Complete Documentation Suite & Repository Governance
+- [x] `README.md`: Comprehensive root repository guide, architecture map, and GitHub badges.
 - [x] `docs/PRD.md`: Full Product Requirements Document with personas, functional features, and API contracts.
 - [x] `docs/ARCHITECTURE.md`: High-level topology diagram, Edge D1 schema, and WebP compression sequence.
 - [x] `docs/DESIGN.md`: Islamic design philosophy, color tokens, typography, and responsive breakpoint matrix.
 - [x] `docs/EDGE_DEPLOYMENT.md`: Step-by-step CLI and Git-integrated edge deployment manual.
-- [x] `docs/MEMORY.md`: Architectural Decision Records (ADRs), persistent constants, and operational caveats.
-- [x] `docs/RULES.md`: Engineering invariants, database rules, WebP rules, and security guidelines.
+- [x] `docs/MEMORY.md`: Architectural Decision Records (ADRs including ADR-006), persistent constants, and operational caveats.
+- [x] `docs/RULES.md`: Engineering invariants, database rules, WebP rules, and continuous GitHub sync protocol.
 - [x] `docs/TASKS.md`: Milestone tracker, completed achievements, and future roadmap.
+- [x] `.agents/rules/docs-and-github-sync.md` & `AGENTS.md`: Mandatory continuous documentation maintenance and automatic GitHub synchronization protocol.
 
 ---
 

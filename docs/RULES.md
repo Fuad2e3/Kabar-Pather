@@ -91,15 +91,21 @@ Kabar-Pather/
 
 Before pushing changes to GitHub or deploying to Edge Pages, execute:
 ```bash
-# 1. Verify JavaScript syntax
-node -c script.js
-node -c assets/js/optimization.js
-node -c assets/js/api-client.js
-node -c assets/js/admin.js
-node -c functions/api/[[path]].js
-node -c functions/api/_api.js
-
-# 2. Verify no prohibited vendor keywords exist
-# Search for forbidden vendor words in root
+npm test
 ```
-Ensure all 6 checks return clean exit code 0.
+Ensure all automated verification checks (165+ tests) return clean exit code 0.
+
+---
+
+## 7. Continuous Documentation & GitHub Synchronization Protocol
+
+1. **Mandatory Documentation Synchronization**:
+   - Every architectural, feature, bug fix, or configuration change must be reflected in the relevant documentation in `docs/` (`README.md`, `MEMORY.md`, `TASKS.md`, `RULES.md`, `ARCHITECTURE.md`, `PRD.md`, `DESIGN.md`, `EDGE_DEPLOYMENT.md`, and root `README.md`).
+   - `docs/TASKS.md` must be updated with milestone progress and checkmarks.
+   - `docs/MEMORY.md` must record new Architectural Decision Records (ADRs) whenever system patterns or invariant rules change.
+2. **Pre-Push Validation**:
+   - The test suite (`npm test`) must pass cleanly before any code is committed.
+3. **Mandatory GitHub Push**:
+   - Changes must be committed with descriptive conventional commit messages (e.g., `feat:`, `fix:`, `docs:`, `test:`).
+   - Working trees must not be left uncommitted; all completed changes must be pushed to GitHub (`git push origin <branch>`).
+

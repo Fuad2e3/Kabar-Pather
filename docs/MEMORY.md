@@ -56,6 +56,15 @@ This document serves as the persistent memory, architectural history, Architectu
 - **Consequences**:
   - Complete compliance with brand and deployment neutrality requirements.
 
+### ADR-006: Continuous Documentation Maintenance & GitHub Synchronization
+- **Status**: Implemented & Enforced.
+- **Context**: As the platform evolves rapidly across edge functions, D1 database schemas, admin tooling, and storefront UI, documentation drift and desynchronized local commits create operational risk.
+- **Decision**: Require all development operations and AI agent contributions to strictly maintain all documentation files in `docs/` (`README.md`, `MEMORY.md`, `TASKS.md`, `RULES.md`, `ARCHITECTURE.md`, `PRD.md`, `DESIGN.md`, `EDGE_DEPLOYMENT.md`, and root `README.md`) on every change, validate against `npm test`, and push commits directly to GitHub (`origin main`).
+- **Consequences**:
+  - Documentation always mirrors the true state of the repository with zero latency.
+  - Transparent git history with semantic conventional commits available to all collaborators on GitHub.
+  - Zero uncommitted local drift or undocumented architectural decisions.
+
 ---
 
 ## 3. Persistent Constants & Keys
