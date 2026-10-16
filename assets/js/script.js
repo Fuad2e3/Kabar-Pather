@@ -173,10 +173,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalCategory = document.getElementById('modalProductCategory');
   const modalPackageItems = document.getElementById('modalPackageItems');
   const modalWhatsappBtn = document.getElementById('modalWhatsappBtn');
+  const modalOrderBtn = document.getElementById('modalOrderBtn');
+  let currentActiveModalProduct = null;
 
   function openProductModalById(productId) {
     const prod = productsCatalog.find(p => p.id === productId);
     if (!prod || !modal) return;
+    currentActiveModalProduct = prod;
 
     modalImg.src = prod.image || (prod.images && prod.images[0]) || 'assets/images/product-kafan.jpg';
     modalImg.alt = prod.title;
@@ -215,10 +218,23 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       modal.setAttribute('hidden', '');
       document.body.style.overflow = '';
+      currentActiveModalProduct = null;
     }, 250);
   }
 
   if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeProductModal);
+  if (modalOrderBtn) {
+    modalOrderBtn.addEventListener('click', () => {
+      if (!currentActiveModalProduct) return;
+      if (window.KabarApi) {
+        window.KabarApi.addToCart(currentActiveModalProduct, 1);
+        updateCartUi();
+        closeProductModal();
+        showToast(`"${currentActiveModalProduct.title}" কার্টে যোগ করা হয়েছে!`);
+        openCartDrawer();
+      }
+    });
+  }
   if (modal) {
     modal.addEventListener('click', (e) => {
       if (e.target === modal) closeProductModal();

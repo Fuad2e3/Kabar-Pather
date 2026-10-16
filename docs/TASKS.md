@@ -36,6 +36,7 @@ gantt
 - [x] Real-time live search engine matching Bengali & English product titles, categories, and tags without page reload.
 - [x] Dual-theme light and dark mode toggler with persistent browser preference storage.
 - [x] Interactive product card with pricing (`৳`), stock badges, and 1-click cart addition.
+- [x] Interactive product details modal (`#productModal`) featuring 1-click direct "অর্ডার করুন" (Add to Cart & Checkout drawer) and "WhatsApp এ অর্ডার করুন" buttons.
 
 ### ✅ Milestone 2: Shopping Cart & Emergency Checkout Pipeline
 - [x] Slide-in cart drawer (`#cartDrawer`) with spring transition, line item listing, and quantity steppers (`+` / `-`).

@@ -65,6 +65,16 @@ This document serves as the persistent memory, architectural history, Architectu
   - Transparent git history with semantic conventional commits available to all collaborators on GitHub.
   - Zero uncommitted local drift or undocumented architectural decisions.
 
+### ADR-007: Product Details Modal Dual Action (Direct Order & WhatsApp) Architecture
+- **Status**: Implemented & Verified.
+- **Context**: When customers open the product details modal (`#productModal`) from the storefront, having only contact links without a direct web ordering path added friction to the conversion funnel.
+- **Decision**: Restructure the modal call-to-action buttons into a stacked dual-action hierarchy:
+  1. **Primary Button (`#modalOrderBtn`)**: "অর্ডার করুন" with primary violet branding, 1-click adds the active product to cart and smoothly transitions into the checkout drawer.
+  2. **Secondary Button (`#modalWhatsappBtn`)**: "WhatsApp এ অর্ডার করুন" in WhatsApp green, linking directly to the emergency WhatsApp hotline with a pre-composed product message.
+- **Consequences**:
+  - Grieving or urgent families can place web orders immediately from the modal view without needing to close the dialog.
+  - WhatsApp remains accessible as an alternative communication channel.
+
 ---
 
 ## 3. Persistent Constants & Keys

@@ -1552,15 +1552,25 @@ button {
 
 .modal-cta-group {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 12px;
   margin-bottom: 14px;
-  flex-wrap: wrap;
+  width: 100%;
 }
 
 .modal-cta-group .btn {
-  padding: 12px 20px;
-  font-size: 0.95rem;
+  width: 100%;
+  padding: 13px 22px;
+  font-size: 1.02rem;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
 .modal-footer-note {
