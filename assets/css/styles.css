@@ -1,26 +1,26 @@
 /* ==========================================================================
    কবর পথের সামগ্রী - Stylesheet
-   Theme: Lavender & Royal Deep Purple (#451970)
+   Theme: Royal Sapphire Blue (#003885)
    ========================================================================== */
 
 :root {
-  /* Brand Lavender & Purple Palette */
-  --primary: #451970;
-  --primary-hover: #56218a;
-  --primary-dark: #300f52;
-  --primary-darker: #22083b;
-  --primary-light: #7033a8;
-  --primary-subtle: #8e49d1;
+  /* Brand Primary Royal Blue Palette (#003885) */
+  --primary: #003885;
+  --primary-hover: #004bb3;
+  --primary-dark: #00275c;
+  --primary-darker: #00193d;
+  --primary-light: #1d64c9;
+  --primary-subtle: #3b82f6;
 
-  /* Lavender Tonal Scale */
-  --lavender-50: #faf7fd;
-  --lavender-100: #f4ecf9;
-  --lavender-200: #eadcf4;
-  --lavender-300: #dbc4ec;
-  --lavender-400: #c6a2e2;
-  --lavender-500: #ab7ad3;
-  --lavender-glow: rgba(69, 25, 112, 0.14);
-  --lavender-border: #e3d3f1;
+  /* Blue Tonal Scale */
+  --lavender-50: #f0f5fc;
+  --lavender-100: #e1ecfa;
+  --lavender-200: #c8ddf6;
+  --lavender-300: #a4c5f0;
+  --lavender-400: #74a6e8;
+  --lavender-500: #4184dc;
+  --lavender-glow: rgba(0, 56, 133, 0.16);
+  --lavender-border: #cfe0f7;
 
   /* Accent & Functional Colors */
   --whatsapp: #25d366;
@@ -30,24 +30,24 @@
   --off-white: #fdfcff;
   
   /* Text Colors */
-  --text-heading: #451970;
-  --text-dark: #1b1126;
-  --text-body: #4c4458;
-  --text-muted: #786f86;
-  --text-light: #f7f3fb;
+  --text-heading: #003885;
+  --text-dark: #0d1b2a;
+  --text-body: #334155;
+  --text-muted: #64748b;
+  --text-light: #f0f5fc;
 
   /* Surfaces & Backgrounds */
-  --bg-page: #fbf9fd;
+  --bg-page: #f8fafd;
   --bg-card: #ffffff;
-  --bg-subtle: #f5edf9;
+  --bg-subtle: #eff5fc;
 
   /* Shadows */
-  --shadow-xs: 0 1px 3px rgba(69, 25, 112, 0.04);
-  --shadow-sm: 0 3px 8px rgba(69, 25, 112, 0.06);
-  --shadow-md: 0 8px 24px rgba(69, 25, 112, 0.08);
-  --shadow-lg: 0 16px 36px rgba(69, 25, 112, 0.12);
-  --shadow-xl: 0 24px 50px rgba(69, 25, 112, 0.18);
-  --shadow-colored: 0 10px 28px rgba(69, 25, 112, 0.25);
+  --shadow-xs: 0 1px 3px rgba(0, 56, 133, 0.04);
+  --shadow-sm: 0 3px 8px rgba(0, 56, 133, 0.06);
+  --shadow-md: 0 8px 24px rgba(0, 56, 133, 0.08);
+  --shadow-lg: 0 16px 36px rgba(0, 56, 133, 0.12);
+  --shadow-xl: 0 24px 50px rgba(0, 56, 133, 0.18);
+  --shadow-colored: 0 10px 28px rgba(0, 56, 133, 0.25);
 
   /* Radius */
   --radius-sm: 8px;
@@ -70,36 +70,36 @@
    Dark Theme / Night Mode Variables (রাতের আভা / ডার্ক মোড)
    ========================================================================== */
 [data-theme="dark"] {
-  /* Brand Primary Inversions - Luminous Royal Lavender */
-  --primary: #c084fc;
-  --primary-hover: #d8b4fe;
-  --primary-dark: #1b102e;
-  --primary-darker: #10081d;
-  --primary-light: #7e3aab;
-  --primary-subtle: #a855f7;
+  /* Brand Primary Inversions - Luminous Sapphire Blue */
+  --primary: #38bdf8;
+  --primary-hover: #7dd3fc;
+  --primary-dark: #0b1a30;
+  --primary-darker: #061020;
+  --primary-light: #1e40af;
+  --primary-subtle: #3b82f6;
 
-  /* Lavender Tonal Scale (Dark Night Inversions) */
-  --lavender-50: #1a122a;
-  --lavender-100: #251b3d;
-  --lavender-200: #352654;
-  --lavender-300: #49376e;
-  --lavender-400: #6b539e;
-  --lavender-500: #9375d0;
-  --lavender-glow: rgba(192, 132, 252, 0.25);
-  --lavender-border: #382856;
+  /* Blue Tonal Scale (Dark Night Inversions) */
+  --lavender-50: #0b1526;
+  --lavender-100: #11223d;
+  --lavender-200: #1a345c;
+  --lavender-300: #25487d;
+  --lavender-400: #3b6bb3;
+  --lavender-500: #568fe0;
+  --lavender-glow: rgba(56, 189, 248, 0.25);
+  --lavender-border: #1e355b;
 
   /* Surfaces & Backgrounds (Night Mode) */
-  --bg-page: #0d0718;
-  --bg-card: #160f26;
-  --bg-subtle: #1f1535;
-  --white: #160f26;
-  --off-white: #130b20;
+  --bg-page: #060d17;
+  --bg-card: #0b1626;
+  --bg-subtle: #0f1f36;
+  --white: #0b1626;
+  --off-white: #08111f;
 
   /* Text Colors */
-  --text-heading: #f5edfd;
-  --text-dark: #fcfaff;
-  --text-body: #d2c6e2;
-  --text-muted: #9e8fb4;
+  --text-heading: #f0f7ff;
+  --text-dark: #f8fbff;
+  --text-body: #cbd5e1;
+  --text-muted: #94a3b8;
   --text-light: #ffffff;
 
   /* Shadows for Dark Mode */
@@ -108,7 +108,7 @@
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.7);
   --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.8);
   --shadow-xl: 0 24px 50px rgba(0, 0, 0, 0.9);
-  --shadow-colored: 0 10px 28px rgba(168, 108, 228, 0.35);
+  --shadow-colored: 0 10px 28px rgba(56, 189, 248, 0.35);
 }
 
 /* --------------------------------------------------------------------------
@@ -191,13 +191,13 @@ button {
 .btn-primary {
   background-color: var(--primary);
   color: var(--white);
-  box-shadow: 0 4px 16px rgba(69, 25, 112, 0.24);
+  box-shadow: 0 4px 16px rgba(0, 56, 133, 0.24);
 }
 
 .btn-primary:hover {
   background-color: var(--primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(69, 25, 112, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 56, 133, 0.35);
   color: var(--white);
 }
 
@@ -211,8 +211,8 @@ button {
   background-color: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(227, 211, 241, 0.6);
-  box-shadow: 0 2px 14px rgba(69, 25, 112, 0.04);
+  border-bottom: 1px solid rgba(207, 224, 247, 0.6);
+  box-shadow: 0 2px 14px rgba(0, 56, 133, 0.04);
   transition: var(--transition-fast);
 }
 
@@ -321,13 +321,13 @@ button {
   padding: 10px 22px;
   font-size: 0.95rem;
   border-radius: var(--radius-pill);
-  box-shadow: 0 4px 14px rgba(69, 25, 112, 0.22);
+  box-shadow: 0 4px 14px rgba(0, 56, 133, 0.22);
 }
 
 .btn-call-header:hover {
   background-color: var(--primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(69, 25, 112, 0.32);
+  box-shadow: 0 6px 20px rgba(0, 56, 133, 0.32);
   color: var(--white);
 }
 
@@ -365,10 +365,10 @@ button {
    -------------------------------------------------------------------------- */
 .hero-section {
   position: relative;
-  background: linear-gradient(135deg, #fdfaff 0%, #f7f0fc 45%, #f1e6f9 100%);
+  background: linear-gradient(135deg, #f6f9fe 0%, #eef5fc 45%, #e3eefb 100%);
   padding: 60px 0 70px;
   overflow: hidden;
-  border-bottom: 1px solid rgba(227, 211, 241, 0.5);
+  border-bottom: 1px solid rgba(207, 224, 247, 0.5);
 }
 
 .hero-bg-accent {
@@ -377,7 +377,7 @@ button {
   right: -100px;
   width: 550px;
   height: 550px;
-  background: radial-gradient(circle, rgba(112, 51, 168, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+  background: radial-gradient(circle, rgba(0, 56, 133, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -455,14 +455,14 @@ button {
   border: 1.5px solid var(--lavender-border);
   padding: 8px 24px 8px 10px;
   border-radius: var(--radius-pill);
-  box-shadow: 0 4px 14px rgba(69, 25, 112, 0.06);
+  box-shadow: 0 4px 14px rgba(0, 56, 133, 0.06);
 }
 
 .btn-hero-call:hover {
   border-color: var(--primary);
   background-color: var(--lavender-50);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(69, 25, 112, 0.12);
+  box-shadow: 0 8px 20px rgba(0, 56, 133, 0.12);
 }
 
 .call-icon-circle {
@@ -506,7 +506,7 @@ button {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding-top: 26px;
-  border-top: 1px solid rgba(227, 211, 241, 0.8);
+  border-top: 1px solid rgba(207, 224, 247, 0.8);
 }
 
 .hero-feature-item {
@@ -570,7 +570,7 @@ button {
   max-width: 520px;
   border-radius: var(--radius-xl);
   overflow: hidden;
-  box-shadow: 0 20px 48px rgba(69, 25, 112, 0.16);
+  box-shadow: 0 20px 48px rgba(0, 56, 133, 0.16);
   border: 4px solid var(--white);
   background: var(--white);
   transition: transform var(--transition-normal);
@@ -578,7 +578,7 @@ button {
 
 .hero-image-frame:hover {
   transform: translateY(-4px);
-  box-shadow: 0 26px 56px rgba(69, 25, 112, 0.22);
+  box-shadow: 0 26px 56px rgba(0, 56, 133, 0.22);
 }
 
 .hero-main-img {
@@ -604,8 +604,8 @@ button {
   display: flex;
   align-items: center;
   gap: 8px;
-  box-shadow: 0 4px 14px rgba(69, 25, 112, 0.12);
-  border: 1px solid rgba(227, 211, 241, 0.6);
+  box-shadow: 0 4px 14px rgba(0, 56, 133, 0.12);
+  border: 1px solid rgba(207, 224, 247, 0.6);
 }
 
 .badge-dot {
@@ -684,7 +684,7 @@ button {
 .product-card:hover {
   transform: translateY(-6px);
   border-color: var(--primary-light);
-  box-shadow: 0 16px 36px rgba(69, 25, 112, 0.14);
+  box-shadow: 0 16px 36px rgba(0, 56, 133, 0.14);
 }
 
 .product-img-wrap {
@@ -755,13 +755,13 @@ button {
   justify-content: center;
   gap: 8px;
   margin: 0 auto;
-  box-shadow: 0 4px 12px rgba(69, 25, 112, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 56, 133, 0.2);
 }
 
 .btn-product-view:hover {
   background-color: var(--primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(69, 25, 112, 0.3);
+  box-shadow: 0 6px 18px rgba(0, 56, 133, 0.3);
 }
 
 .btn-product-view .btn-arrow {
@@ -831,7 +831,7 @@ button {
   left: 0;
   width: 100%;
   padding: 30px 20px 20px;
-  background: linear-gradient(0deg, rgba(34, 8, 59, 0.94) 0%, rgba(34, 8, 59, 0.6) 70%, transparent 100%);
+  background: linear-gradient(0deg, rgba(0, 32, 77, 0.94) 0%, rgba(0, 32, 77, 0.6) 70%, transparent 100%);
   color: var(--white);
   text-align: center;
 }
@@ -879,7 +879,7 @@ button {
 .trust-card:hover {
   transform: translateY(-4px);
   border-color: var(--primary-light);
-  box-shadow: 0 12px 28px rgba(69, 25, 112, 0.1);
+  box-shadow: 0 12px 28px rgba(0, 56, 133, 0.1);
 }
 
 .trust-icon-box {
@@ -926,14 +926,14 @@ button {
 
 /* Bottom Full-Width Order Banner */
 .order-cta-banner {
-  background: linear-gradient(135deg, var(--primary) 0%, #5c2094 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, #004fb8 100%);
   border-radius: var(--radius-lg);
   padding: 24px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  box-shadow: 0 14px 36px rgba(69, 25, 112, 0.28);
+  box-shadow: 0 14px 36px rgba(0, 56, 133, 0.28);
   color: var(--white);
 }
 
@@ -1063,14 +1063,14 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 18px rgba(69, 25, 112, 0.24);
+  box-shadow: 0 6px 18px rgba(0, 56, 133, 0.24);
   margin-bottom: 20px;
   transition: transform var(--transition-normal);
 }
 
 .step-card:hover .step-icon-wrap {
   transform: scale(1.08) translateY(-4px);
-  box-shadow: 0 10px 24px rgba(69, 25, 112, 0.35);
+  box-shadow: 0 10px 24px rgba(0, 56, 133, 0.35);
 }
 
 .step-icon-wrap svg {
@@ -1089,7 +1089,7 @@ button {
   padding: 2px 8px;
   border-radius: var(--radius-pill);
   border: 1.5px solid var(--primary);
-  box-shadow: 0 2px 6px rgba(69, 25, 112, 0.15);
+  box-shadow: 0 2px 6px rgba(0, 56, 133, 0.15);
 }
 
 .step-title {
@@ -1122,7 +1122,7 @@ button {
    -------------------------------------------------------------------------- */
 .site-footer {
   position: relative;
-  background: linear-gradient(180deg, #2b0b4b 0%, #200637 100%);
+  background: linear-gradient(180deg, #002254 0%, #001533 100%);
   color: #dfd6eb;
   padding: 70px 0 0;
   overflow: hidden;
@@ -1134,7 +1134,7 @@ button {
   bottom: 40px;
   width: 480px;
   height: 260px;
-  background-image: radial-gradient(ellipse 70% 60% at 70% 80%, rgba(138, 73, 209, 0.12) 0%, transparent 70%);
+  background-image: radial-gradient(ellipse 70% 60% at 70% 80%, rgba(56, 189, 248, 0.12) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -1427,7 +1427,7 @@ button {
   width: 100%;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 25px 60px rgba(45, 11, 74, 0.35);
+  box-shadow: 0 25px 60px rgba(0, 39, 92, 0.35);
   border: 1px solid var(--lavender-border);
   transform: translateY(20px) scale(0.96);
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -1673,7 +1673,7 @@ button {
     left: 0;
     width: 100%;
     background-color: var(--white);
-    box-shadow: 0 10px 24px rgba(69, 25, 112, 0.12);
+    box-shadow: 0 10px 24px rgba(0, 56, 133, 0.12);
     padding: 24px;
     transform: translateY(-120%);
     opacity: 0;
@@ -1893,7 +1893,7 @@ button {
   font-weight: 700;
   cursor: pointer;
   transition: var(--transition-normal);
-  box-shadow: 0 2px 8px rgba(69, 25, 112, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 56, 133, 0.08);
 }
 
 .user-profile-btn:hover {
@@ -1901,7 +1901,7 @@ button {
   color: #ffffff;
   border-color: var(--primary);
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(69, 25, 112, 0.22);
+  box-shadow: 0 6px 18px rgba(0, 56, 133, 0.22);
 }
 
 .user-avatar-circle {
@@ -2061,7 +2061,7 @@ button {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(34, 8, 59, 0.6);
+  background: rgba(0, 32, 77, 0.6);
   backdrop-filter: blur(4px);
   z-index: 1000;
   opacity: 0;
@@ -2315,7 +2315,7 @@ button {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(34, 8, 59, 0.7);
+  background: rgba(0, 32, 77, 0.7);
   backdrop-filter: blur(6px);
   z-index: 1050;
   display: none;
@@ -2464,7 +2464,7 @@ button {
   background-color: rgba(18, 11, 30, 0.94);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(168, 108, 228, 0.18);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.18);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -2477,7 +2477,7 @@ button {
 }
 
 [data-theme="dark"] .brand-logo .logo-icon-wrap {
-  filter: drop-shadow(0 2px 8px rgba(168, 108, 228, 0.4));
+  filter: drop-shadow(0 2px 8px rgba(56, 189, 248, 0.4));
 }
 
 [data-theme="dark"] .nav-link {
@@ -2517,7 +2517,7 @@ button {
   background: #a855f7;
   border-color: #a855f7;
   color: #ffffff;
-  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.35);
+  box-shadow: 0 4px 16px rgba(56, 189, 248, 0.35);
 }
 
 [data-theme="dark"] .cart-count-badge {
@@ -2538,19 +2538,19 @@ button {
 
 /* Hero Section in Night Mode */
 [data-theme="dark"] .hero-section {
-  background: linear-gradient(135deg, #130922 0%, #1b0e30 50%, #11071e 100%);
-  border-bottom: 1px solid rgba(168, 108, 228, 0.18);
+  background: linear-gradient(135deg, #070e1c 0%, #0d1a30 50%, #081120 100%);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.18);
 }
 
 [data-theme="dark"] .hero-bg-accent {
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, rgba(19, 9, 34, 0) 70%);
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(19, 9, 34, 0) 70%);
 }
 
 [data-theme="dark"] .hero-title,
 [data-theme="dark"] .hero-title-main,
 [data-theme="dark"] .hero-title-sub {
   color: #f3e8ff;
-  text-shadow: 0 4px 24px rgba(168, 85, 247, 0.25);
+  text-shadow: 0 4px 24px rgba(56, 189, 248, 0.25);
 }
 
 [data-theme="dark"] .hero-description {
@@ -2592,7 +2592,7 @@ button {
 }
 
 [data-theme="dark"] .hero-features {
-  border-top: 1px solid rgba(168, 108, 228, 0.18);
+  border-top: 1px solid rgba(56, 189, 248, 0.18);
 }
 
 [data-theme="dark"] .feature-icon-wrap {
@@ -2655,7 +2655,7 @@ button {
 
 [data-theme="dark"] .product-card:hover {
   border-color: #a855f7;
-  box-shadow: 0 16px 36px rgba(168, 85, 247, 0.25);
+  box-shadow: 0 16px 36px rgba(56, 189, 248, 0.25);
 }
 
 [data-theme="dark"] .product-img-wrap {
@@ -2746,7 +2746,7 @@ button {
 
 [data-theme="dark"] .trust-card:hover {
   border-color: #a855f7;
-  box-shadow: 0 12px 28px rgba(168, 85, 247, 0.2);
+  box-shadow: 0 12px 28px rgba(56, 189, 248, 0.2);
 }
 
 [data-theme="dark"] .trust-icon-box {
@@ -2953,7 +2953,7 @@ button {
 
 [data-theme="dark"] .checkout-input:focus {
   border-color: #a855f7;
-  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.25);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
 }
 
 [data-theme="dark"] #checkoutArea {

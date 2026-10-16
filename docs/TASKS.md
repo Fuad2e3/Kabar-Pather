@@ -29,7 +29,7 @@ gantt
 ## 2. Completed Milestones & Tasks
 
 ### ✅ Milestone 1: Storefront UI & Islamic Design System
-- [x] Implemented serene Islamic color scheme with Royal Violet (`#451970`), gentle gold accents, and clean spiritual background.
+- [x] Implemented serene Islamic color scheme with Royal Sapphire Blue (`#003885`), gentle accents, and clean spiritual background.
 - [x] Integrated **Hind Siliguri** font for natural Bengali typography paired with **Inter** for numerals.
 - [x] Added 24/7 emergency dispatch topbar featuring hotline (`01844-687759`), Kamrangirchar address, and WhatsApp link.
 - [x] Dynamic category navigation pills (`সকল সামগ্রী`, `কাফনের কাপড়`, `আতর ও সুরমা`, `সম্পূর্ণ প্যাকেজ`, `আনুষঙ্গিক`).

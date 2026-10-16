@@ -75,6 +75,14 @@ This document serves as the persistent memory, architectural history, Architectu
   - Grieving or urgent families can place web orders immediately from the modal view without needing to close the dialog.
   - WhatsApp remains accessible as an alternative communication channel.
 
+### ADR-008: Adoption of Royal Sapphire Blue (#003885) Brand Theme
+- **Status**: Implemented & Verified.
+- **Context**: To align the visual identity with a serene, dignified Islamic royal blue aesthetic, the primary landing page palette needed to transition to `#003885`.
+- **Decision**: Transition `--primary` to `#003885` and rebuild the tonal scales (surfaces, shadows, gradients, and night mode sapphire blue `#38bdf8`) while maintaining strict WCAG AA contrast ratios across both day and night themes.
+- **Consequences**:
+  - Dignified, premium visual presentation across all storefront components.
+  - High scannability and contrast for emergency ordering.
+
 ---
 
 ## 3. Persistent Constants & Keys

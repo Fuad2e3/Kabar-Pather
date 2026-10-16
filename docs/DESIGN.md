@@ -8,7 +8,7 @@ This document outlines the visual language, design token architecture, typograph
 
 কবর পথের সামগ্রী is designed around four foundational visual and emotional principles:
 
-1. **Serenity & Reverence (গাম্ভীর্য ও পবিত্রতা)**: Islamic emergency funeral services require a respectful, solemn, and calming aesthetic. We avoid loud, flashy commercial colors, using serene Royal Violet (`#451970`), gentle gold accents, and clean spiritual white backdrops.
+1. **Serenity & Reverence (গাম্ভীর্য ও পবিত্রতা)**: Islamic emergency funeral services require a respectful, solemn, and calming aesthetic. We utilize serene Royal Sapphire Blue (`#003885`), gentle accents, and clean spiritual white backdrops.
 2. **Instant Scannability under Stress (সংকটে দ্রুত সিদ্ধান্ত)**: Users visiting the site are often grieving or under urgent time constraints. Pricing in Taka (`৳`), product inclusions, emergency hotline numbers (`01844-687759`), and delivery times are prominently presented with zero clutter.
 3. **Compassionate Tactility**: Smooth, gentle micro-transitions, elevated cards, and a slide-in cart drawer that feels responsive and assuring.
 4. **Authentic Bengali Typography**: Deep integration of the **Hind Siliguri** font for natural, readable Bengali letterforms combined with **Inter** for clean numerals and Latin text.
@@ -22,12 +22,12 @@ The interface utilizes structured CSS custom properties defined in `styles.css`:
 
 ```css
 :root {
-  /* Brand Primary (Royal Islamic Violet) */
-  --primary:        #451970;
-  --primary-hover:  #5a2391;
-  --primary-dark:   #2e0f4d;
-  --primary-light:  #f3ebfa;
-  --primary-rgb:    69, 25, 112;
+  /* Brand Primary (Royal Sapphire Blue) */
+  --primary:        #003885;
+  --primary-hover:  #004bb3;
+  --primary-dark:   #00275c;
+  --primary-light:  #1d64c9;
+  --primary-rgb:    0, 56, 133;
 
   /* Accent & Semantics */
   --accent:         #c99738; /* Gold Accent */
@@ -38,29 +38,30 @@ The interface utilizes structured CSS custom properties defined in `styles.css`:
   --info:           #0369a1; /* Processing / Info */
 
   /* Neutrals (Light Mode) */
-  --bg-body:        #f8f9fc;
+  --bg-body:        #f8fafd;
   --bg-card:        #ffffff;
   --bg-elevated:    #ffffff;
-  --border-color:   #e2e8f0;
-  --text-main:      #1e293b;
+  --border-color:   #cfe0f7;
+  --text-main:      #0d1b2a;
   --text-muted:     #64748b;
-  --text-light:     #94a3b8;
+  --text-light:     #f0f5fc;
 
   /* Elevation Shadows */
-  --shadow-sm:      0 1px 3px rgba(0, 0, 0, 0.06);
-  --shadow-md:      0 4px 14px rgba(69, 25, 112, 0.08);
-  --shadow-lg:      0 12px 28px rgba(69, 25, 112, 0.12);
+  --shadow-sm:      0 1px 3px rgba(0, 56, 133, 0.06);
+  --shadow-md:      0 4px 14px rgba(0, 56, 133, 0.08);
+  --shadow-lg:      0 12px 28px rgba(0, 56, 133, 0.12);
 }
 
 [data-theme="dark"] {
-  --bg-body:        #0f0d14;
-  --bg-card:        #181522;
-  --bg-elevated:    #221d30;
-  --border-color:   #2e2840;
-  --text-main:      #f1f5f9;
+  --bg-body:        #060d17;
+  --bg-card:        #0b1626;
+  --bg-elevated:    #0f1f36;
+  --border-color:   #1e355b;
+  --text-main:      #f0f7ff;
   --text-muted:     #94a3b8;
-  --text-light:     #64748b;
-  --primary-light:  #2e0f4d;
+  --text-light:     #ffffff;
+  --primary:        #38bdf8;
+  --primary-light:  #1e40af;
 }
 ```
 
