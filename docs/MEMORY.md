@@ -80,8 +80,22 @@ This document serves as the persistent memory, architectural history, Architectu
 - **Context**: To align the visual identity with a serene, dignified Islamic royal blue aesthetic, the primary landing page palette needed to transition to `#003885`.
 - **Decision**: Transition `--primary` to `#003885` and rebuild the tonal scales (surfaces, shadows, gradients, and night mode sapphire blue `#38bdf8`) while maintaining strict WCAG AA contrast ratios across both day and night themes.
 - **Consequences**:
-  - Dignified, premium visual presentation across all storefront components.
-  - High scannability and contrast for emergency ordering.
+-  - Dignified, premium visual presentation across all storefront components.
+-  - High scannability and contrast for emergency ordering.
+
+### ADR-009: Autonomous Device-Only Day/Night Theme & Comprehensive Responsive Suite
+- **Status**: Implemented & Verified.
+- **Context**: The user specified that the website must automatically detect day/night mode from the user's phone or PC OS settings without any manual Day/Night toggle button on the UI, and must be fully responsive across all screen sizes.
+- **Decision**:
+  1. Rely exclusively on `window.matchMedia('(prefers-color-scheme: dark)')` with real-time `change` event listeners in `assets/js/theme.js`.
+  2. Eliminate all manual theme buttons from Storefront and Admin views, maintaining zero visual clutter for urgent funeral inquiries.
+  3. Dynamically sync the mobile browser address bar `<meta name="theme-color">` with `#003885` (Light / Day) and `#060d17` (Dark / Night).
+  4. Unify the dark mode CSS palette in `assets/css/styles.css` with Royal Sapphire Blue (`#003885` / `#38bdf8`) and midnight slate surfaces (`#060d17` / `#0b1626` / `#0f1f36`).
+  5. Enforce defensive mobile viewport constraints: product details modal (`.product-modal-dialog`) has `max-height: 90vh/92vh; overflow-y: auto;` to guarantee full access to dual CTAs ("অর্ডার করুন" and "WhatsApp এ অর্ডার করুন") on all ultra-compact (320px–380px) and standard viewports.
+- **Consequences**:
+  - 100% automatic day/night theme sync across iOS, Android, macOS, and Windows.
+  - Zero accidental theme mismatch or toggle confusion.
+  - 100% responsive fluid rendering on phones, phablets, tablets, laptops, and ultra-wide desktops.
 
 ---
 

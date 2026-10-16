@@ -316,6 +316,18 @@ function resolveDeviceTheme(osPrefersDark) {
 assert(resolveDeviceTheme(true) === 'dark', 'Phone/PC in Dark Mode resolves to dark theme');
 assert(resolveDeviceTheme(false) === 'light', 'Phone/PC in Light Mode resolves to light theme');
 
+// Verify zero manual theme toggle buttons in Storefront & Admin UI (Strictly Device Auto)
+const indexHtmlContent = fs.readFileSync(path.join(rootDir, 'index.html'), 'utf-8');
+const adminHtmlContent = fs.readFileSync(path.join(rootDir, 'admin.html'), 'utf-8');
+const themeJsContent = fs.readFileSync(path.join(rootDir, 'assets', 'js', 'theme.js'), 'utf-8');
+const stylesCssContent = fs.readFileSync(path.join(rootDir, 'assets', 'css', 'styles.css'), 'utf-8');
+
+assert(!indexHtmlContent.includes('id="themeToggleBtn"') && !indexHtmlContent.includes('class="theme-toggle-btn"'), 'Storefront UI has 0 manual theme buttons (strictly device auto)');
+assert(!adminHtmlContent.includes('id="themeToggleBtn"') && !adminHtmlContent.includes('class="theme-toggle-btn"'), 'Admin UI has 0 manual theme buttons (strictly device auto)');
+assert(themeJsContent.includes('#003885') && themeJsContent.includes('#060d17'), 'Theme engine syncs mobile meta theme-color with #003885 (Day) and #060d17 (Night)');
+assert(stylesCssContent.includes('@media (max-width: 768px)') && stylesCssContent.includes('@media (max-width: 380px)') && stylesCssContent.includes('@media (min-width: 1200px)'), 'All responsive breakpoints (Ultra-compact 380px, Mobile 768px, Desktop 1200px) defined');
+assert(stylesCssContent.includes('.product-modal-dialog') && stylesCssContent.includes('overflow-y: auto'), 'Product details modal includes vertical overflow scroll for mobile safety');
+
 /* ──────────────────────────────────────────────────────────────────────────
    TEST 7: Vendor Brand Independence Verification
    ────────────────────────────────────────────────────────────────────────── */

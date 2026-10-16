@@ -101,7 +101,7 @@ The typography pairs **Hind Siliguri** (for natural Bengali scripts) with **Inte
 ## 4. Key Component Specifications
 
 ### 4.1 Product Card (`.product-card`)
-- **Visual Presentation**: White elevated surface with subtle royal purple shadow on hover (`transform: translateY(-4px)`).
+- **Visual Presentation**: White elevated surface with subtle royal blue shadow on hover (`transform: translateY(-4px)`).
 - **Product Image Frame**: 4:3 aspect ratio container with soft background, lazy loading, and object-fit containment.
 - **Badge Indicators**:
   - `প্রিমিয়াম প্যাকেজ`: Gold accent pill for curated sets.
@@ -132,12 +132,18 @@ The typography pairs **Hind Siliguri** (for natural Bengali scripts) with **Inte
 
 ---
 
-## 5. Responsive Breakpoint Matrix
+## 5. Responsive Breakpoint Matrix & Device Support
 
-| Viewport | Range | Layout Strategy |
+| Viewport Category | Breakpoint Range | Architectural Layout Strategy |
 | :--- | :--- | :--- |
-| **Mobile Portrait** | `< 576px` | 1-column single product card grid, full-width emergency bar, bottom-sheet style cart drawer. |
-| **Mobile Landscape / Phablet**| `576px – 768px` | 2-column product grid, compact category pill scroll, full modal views. |
-| **Tablet Portrait** | `769px – 992px` | 2–3 column product grid, right slide-in cart drawer (`380px`), stacked admin panels. |
-| **Desktop** | `993px – 1280px` | 3–4 column product grid, side-by-side sell post form and live card preview in admin. |
-| **Large Desktop** | `> 1280px` | Max container width `1200px` centered with generous white space and spiritual elegance. |
+| **Ultra-Compact Mobile** | `< 380px` (e.g. iPhone SE, Galaxy Fold) | 1-column/condensed grid, 12px gutter padding, font scale dampening (`0.88rem` titles), 150px modal image height, 100vw full-screen cart drawer. |
+| **Standard Mobile** | `380px – 768px` (iPhone 13/14/15/16, Pixel, Galaxy S) | 2-column product grid, touch-smooth horizontal scrollable category filter pills, full-screen cart drawer (`100vw`), product details modal with vertical scroll safety (`max-height: 92vh; overflow-y: auto`). |
+| **Tablet (Portrait & Landscape)** | `769px – 1199px` (iPad, Galaxy Tab) | 3-column product grid, dedicated `380px` slide-in cart drawer, stacked or dual-column administrative sell-post form. |
+| **Desktop & Large Displays** | `1200px+` (Laptops, iMacs, 4K displays) | 4-column product grid, 1220px centered container, side-by-side sell post form and reactive live card preview. |
+
+---
+
+## 6. Autonomous Device OS Day/Night Architecture
+- **Strict Device Detection**: Theme follows user's operating system mode automatically using `window.matchMedia('(prefers-color-scheme: dark)')`.
+- **Zero UI Button Distraction**: Manual Day/Night toggle buttons are deliberately eliminated from both Storefront and Admin interfaces.
+- **Mobile Address Bar Chrome Sync**: Dynamic `<meta name="theme-color">` updates to `#003885` (Day) and `#060d17` (Night) for seamless integration with mobile browser UI.

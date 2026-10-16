@@ -49,7 +49,7 @@
    */
   function updateThemeLogos(resolved) {
     try {
-      const logos = document.querySelectorAll('#siteLogoImg, #adminSiteLogoImg, .logo-img');
+      const logos = document.querySelectorAll('#siteLogoImg, #adminSiteLogoImg, .logo-img, .login-logo');
       logos.forEach(img => {
         if (!img || !img.src) return;
         if (resolved === 'dark') {
@@ -82,7 +82,7 @@
       themeMeta.name = 'theme-color';
       document.head.appendChild(themeMeta);
     }
-    themeMeta.content = resolved === 'dark' ? '#0d0718' : '#451970';
+    themeMeta.content = resolved === 'dark' ? '#060d17' : '#003885';
 
     updateThemeLogos(resolved);
   }

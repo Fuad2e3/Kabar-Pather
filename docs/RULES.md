@@ -104,8 +104,21 @@ Ensure all automated verification checks (165+ tests) return clean exit code 0.
    - `docs/TASKS.md` must be updated with milestone progress and checkmarks.
    - `docs/MEMORY.md` must record new Architectural Decision Records (ADRs) whenever system patterns or invariant rules change.
 2. **Pre-Push Validation**:
-   - The test suite (`npm test`) must pass cleanly before any code is committed.
+   - The test suite (`npm test`) must pass cleanly (170+ tests, 0 failures) before any code is committed.
 3. **Mandatory GitHub Push**:
    - Changes must be committed with descriptive conventional commit messages (e.g., `feat:`, `fix:`, `docs:`, `test:`).
    - Working trees must not be left uncommitted; all completed changes must be pushed to GitHub (`git push origin <branch>`).
+
+---
+
+## 8. Device-Autonomous Day/Night Theme & Responsive Viewport Rules
+
+1. **Autonomous OS Theme Sync Only**:
+   - The platform strictly adheres to the user's phone or computer OS theme (`prefers-color-scheme`).
+   - Manual Day/Night toggle buttons are strictly prohibited from user-facing markup to ensure a dignified, distraction-free environment.
+2. **Mobile Address Bar Integration**:
+   - `<meta name="theme-color">` must always dynamically reflect `#003885` in daylight mode and `#060d17` in night mode.
+3. **Defensive Viewport Height Standards**:
+   - Every modal dialog (`.product-modal-dialog`, `.custom-modal-box`) must include `max-height: 90vh/92vh; overflow-y: auto;` to guarantee all interactive buttons remain reachable on compact phone viewports.
+
 

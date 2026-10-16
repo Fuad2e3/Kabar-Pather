@@ -34,7 +34,7 @@ gantt
 - [x] Added 24/7 emergency dispatch topbar featuring hotline (`01844-687759`), Kamrangirchar address, and WhatsApp link.
 - [x] Dynamic category navigation pills (`সকল সামগ্রী`, `কাফনের কাপড়`, `আতর ও সুরমা`, `সম্পূর্ণ প্যাকেজ`, `আনুষঙ্গিক`).
 - [x] Real-time live search engine matching Bengali & English product titles, categories, and tags without page reload.
-- [x] Dual-theme light and dark mode toggler with persistent browser preference storage.
+- [x] Autonomous Device OS Day/Night Auto-Theme Engine (auto-sync via `prefers-color-scheme` with 0 manual toggle buttons on UI for a clean, distraction-free experience).
 - [x] Interactive product card with pricing (`৳`), stock badges, and 1-click cart addition.
 - [x] Interactive product details modal (`#productModal`) featuring 1-click direct "অর্ডার করুন" (Add to Cart & Checkout drawer) and "WhatsApp এ অর্ডার করুন" buttons.
 
@@ -86,9 +86,20 @@ gantt
 - [x] `docs/TASKS.md`: Milestone tracker, completed achievements, and future roadmap.
 - [x] `.agents/rules/docs-and-github-sync.md` & `AGENTS.md`: Mandatory continuous documentation maintenance and automatic GitHub synchronization protocol.
 
+### ✅ Milestone 6: Device OS Auto Theme & All-Device Responsive Verification
+- [x] **Zero Manual Theme Buttons**: UI strictly relies on device OS auto detection (`prefers-color-scheme`) without any manual toggle buttons on the storefront or admin UI.
+- [x] **Theme Synchronization**: Mobile `<meta name="theme-color">` dynamically synchronizes with `#003885` (day) and `#060d17` (night) for mobile browser address bar chrome.
+- [x] **Sapphire Midnight Slate Theme**: Unification of dark theme styles in `assets/css/styles.css` using the `#003885` / `#38bdf8` palette and `#060d17` / `#0b1626` / `#0f1f36` surfaces.
+- [x] **All-Device Viewport Suite**: Full verification across:
+  - Ultra-compact mobile (`<= 380px`, e.g. iPhone SE, Galaxy Fold)
+  - Standard mobile (`380px – 768px`)
+  - Tablet portrait & landscape (`769px – 1199px`)
+  - Desktop & high-resolution displays (`1200px+`)
+- [x] **Defensive Viewport Constraints**: Added `max-height: 90vh/92vh; overflow-y: auto;` to product details modal (`.product-modal-dialog`) and custom modals, ensuring full vertical reachability for action buttons on compact screens.
+
 ---
 
-## 3. Upcoming Roadmap (Milestones 6 & Beyond)
+## 3. Upcoming Roadmap (Milestones 7 & Beyond)
 
 ### 📌 Milestone 6: Automated bKash & Nagad Merchant Gateway
 - [ ] Connect bKash Direct Checkout API via Edge Pages Functions.
