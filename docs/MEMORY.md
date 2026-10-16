@@ -182,7 +182,7 @@ This document serves as the persistent memory, architectural history, Architectu
   1. Positioned developer credit badge in the bottom-right corner of the copyright sub-footer (`.footer-bottom-container`).
   2. Integrated developer attribution inside the account creation modal (`#authModal`) directly under the "অ্যাকাউন্ট তৈরি করুন" submit button (`#userRegSubmitBtn`).
   3. Integrated developer attribution under the checkout drawer guest account creation prompt (`#checkoutAuthPrompt`) and inside the user menu dropdown (`#userMenuDropdown`).
-  4. Styled as a unified capsule pill (`border-radius: 9999px`) enclosing the entire phrase ("Developed by ⚡ Softece") with an electric icon (`⚡`), subtle hover glow, and responsive auto-centering on mobile devices across Day and Night themes.
+  4. Styled as a unified capsule pill (`border-radius: 9999px`) enclosing the clean phrase ("Developed by Softece") with subtle hover glow and responsive auto-centering on mobile devices across Day and Night themes.
 - **Consequences**:
   - Respects the respectful Islamic tone of the platform while providing standard developer attribution.
   - Zero layout shift, zero viewport overflow, and fully responsive across all device breakpoints.

@@ -671,7 +671,6 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="user-dropdown-dev-credit">
             <a href="https://softece.com" target="_blank" rel="noopener noreferrer" class="dev-brand-link" title="Softece - Software & Web Development Agency">
               <span class="dev-brand-text">Developed by</span>
-              <span class="dev-brand-icon">⚡</span>
               <strong>Softece</strong>
             </a>
           </div>
