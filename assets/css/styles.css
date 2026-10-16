@@ -2265,6 +2265,26 @@ button {
   border-color: var(--primary);
 }
 
+#checkoutArea {
+  font-weight: 700;
+  font-family: var(--font-bangla);
+  font-size: 0.94rem;
+  cursor: pointer;
+}
+
+#checkoutArea option {
+  font-weight: 700;
+  font-family: var(--font-bangla);
+  font-size: 0.94rem;
+  padding: 8px 12px;
+  background-color: #ffffff;
+  color: var(--text-dark);
+}
+
+.cart-cost-row b {
+  font-weight: 700;
+}
+
 .btn-checkout-submit {
   width: 100%;
   background: var(--primary);
@@ -2934,6 +2954,18 @@ button {
 [data-theme="dark"] .checkout-input:focus {
   border-color: #a855f7;
   box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.25);
+}
+
+[data-theme="dark"] #checkoutArea {
+  background-color: #1e1433;
+  color: #f5edfd;
+  font-weight: 700;
+}
+
+[data-theme="dark"] #checkoutArea option {
+  background-color: #1e1433;
+  color: #f5edfd;
+  font-weight: 700;
 }
 
 [data-theme="dark"] .auth-tabs {

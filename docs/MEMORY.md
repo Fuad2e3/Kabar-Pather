@@ -105,3 +105,6 @@ This document serves as the persistent memory, architectural history, Architectu
    - Inside Dhaka (`inside_dhaka`): `৳৮০`.
    - Outside Dhaka (`outside_dhaka`): `৳১৫০`.
    - Any modifications to delivery fee logic must be synchronized across `assets/js/api-client.js`, `script.js`, and `functions/api/_api.js`.
+4. **Bengali Numeral Typography in Dropdown Options**:
+   - Hind Siliguri numeral `১` (as in `৳১৫০`) requires bold `font-weight: 700` applied to `#checkoutArea` and `#checkoutArea option` to avoid thin stroke antialiasing distortion in dark mode and high-DPI displays.
+
