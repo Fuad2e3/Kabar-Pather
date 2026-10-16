@@ -311,8 +311,10 @@
       const phoneDigits = clean.replace(/[\s-]/g, '').slice(-11);
       return all.filter(o => 
         (o.ref && o.ref.toUpperCase() === clean.toUpperCase()) ||
-        (o.customer_phone && o.customer_phone.replace(/[\s-]/g, '').includes(phoneDigits)) ||
-        (o.phone && o.phone.replace(/[\s-]/g, '').includes(phoneDigits))
+        (phoneDigits && o.customer_phone && o.customer_phone.replace(/[\s-]/g, '').includes(phoneDigits)) ||
+        (phoneDigits && o.phone && o.phone.replace(/[\s-]/g, '').includes(phoneDigits)) ||
+        (clean.includes('@') && o.customer_email && o.customer_email.toLowerCase() === clean.toLowerCase()) ||
+        (clean.includes('@') && o.email && o.email.toLowerCase() === clean.toLowerCase())
       );
     }
 

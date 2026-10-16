@@ -502,10 +502,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const successCustomerAddress = document.getElementById('successCustomerAddress');
   const successOrderTotal = document.getElementById('successOrderTotal');
   const successWhatsappBtn = document.getElementById('successWhatsappBtn');
+  const viewPlacedOrderTrackBtn = document.getElementById('viewPlacedOrderTrackBtn');
   const closeSuccessModalBtn = document.getElementById('closeSuccessModalBtn');
+  let latestPlacedOrderRef = '';
 
   function openOrderConfirmModal(order) {
     if (!orderConfirmModal) return;
+    latestPlacedOrderRef = order.ref || '';
 
     if (successOrderRef) successOrderRef.textContent = order.ref;
     if (successCustomerName) successCustomerName.textContent = order.name;
@@ -519,6 +522,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     orderConfirmModal.classList.add('active');
+  }
+
+  if (viewPlacedOrderTrackBtn) {
+    viewPlacedOrderTrackBtn.addEventListener('click', () => {
+      if (orderConfirmModal) orderConfirmModal.classList.remove('active');
+      openTrackModal(latestPlacedOrderRef);
+    });
   }
 
   if (closeSuccessModalBtn) {

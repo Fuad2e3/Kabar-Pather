@@ -3,7 +3,7 @@
 > **সম্মান, যত্ন ও নির্ভরযোগ্য সেবা** — ইসলামিক কাফন ও দাফন সামগ্রী অনলাইন প্ল্যাটফর্ম ও জরুরি সেবা নেটওয়ার্ক।  
 > *Modern Edge E-Commerce platform powered by Edge Pages, serverless Edge D1 Database, and Edge R2 WebP Storage.*
 
-[![Test Suite](https://img.shields.io/badge/tests-201%20passed-success)](tests/verify-all.mjs)
+[![Test Suite](https://img.shields.io/badge/tests-202%20passed-success)](tests/verify-all.mjs)
 [![Edge Platform](https://img.shields.io/badge/platform-Edge%20Pages%20%7C%20D1%20%7C%20R2-blueviolet)](wrangler.toml)
 [![License: ISC](https://img.shields.io/badge/License-ISC-purple.svg)](package.json)
 

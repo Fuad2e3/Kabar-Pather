@@ -102,7 +102,7 @@ gantt
 - [x] **Zero Viewport Blowout**: Enforced `width: 100%; max-width: 100%; overflow-x: hidden;` on `html` and `body` ensuring document layout strictly matches device width.
 - [x] **Single Crisp SVG Search Icon**: Replaced dual search icons (placeholder emoji + overlay `<span>`) with dedicated `.catalog-search-wrap`, crisp SVG `.catalog-search-icon`, and clean placeholder text.
 - [x] **Touch-Scrollable Category Tabs**: Wrapped pills in `.category-tabs-wrapper` with mobile edge-to-edge negative margins and configured `.category-tabs` with `overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; touch-action: pan-x !important; justify-content: flex-start !important;` for silky-smooth horizontal touch swiping on mobile.
-- [x] **Automated Regression Suite**: Expanded `tests/verify-all.mjs` to 201 passing assertions testing DOM contracts, checkout state synchronization, viewport containment, and theme contrast.
+- [x] **Automated Regression Suite**: Expanded `tests/verify-all.mjs` to 202 passing assertions testing DOM contracts, checkout state synchronization, viewport containment, and theme contrast.
 
 ### ✅ Milestone 9: Account-Linked Checkout & Guest Auth Prompt
 - [x] **Automated Name & Mobile Number**: Extracted customer name and phone automatically from active user account (`KabarApi.getCurrentUser()`), completely removing manual text inputs for name and mobile number from the checkout form view.

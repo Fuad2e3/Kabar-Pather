@@ -695,12 +695,22 @@ async function trackOrders(phone, ref, env) {
   try {
     assertDb(env);
     let results = [];
-    if (ref) {
-      const res = await env.DB.prepare('SELECT * FROM orders WHERE upper(ref) = upper(?)').bind(ref.trim()).all();
+    const cleanRef = (ref || '').trim();
+    const cleanPhone = (phone || '').replace(/[\s-]/g, '').slice(-11);
+
+    if (cleanRef) {
+      const res = await env.DB.prepare('SELECT * FROM orders WHERE upper(ref) = upper(?)').bind(cleanRef).all();
       results = res.results || [];
-    } else if (phone) {
-      const cleanPhone = phone.replace(/[\s-]/g, '').slice(-11);
-      const res = await env.DB.prepare('SELECT * FROM orders WHERE customer_phone LIKE ? ORDER BY placed_at DESC').bind(`%${cleanPhone}%`).all();
+    }
+
+    if (results.length === 0 && (phone || cleanRef)) {
+      const searchVal = cleanPhone || cleanRef;
+      const res = await env.DB.prepare(`
+        SELECT * FROM orders 
+        WHERE (customer_phone IS NOT NULL AND customer_phone LIKE ?)
+           OR (customer_email IS NOT NULL AND lower(customer_email) = lower(?))
+        ORDER BY placed_at DESC
+      `).bind(`%${searchVal}%`, cleanRef).all();
       results = res.results || [];
     }
 
