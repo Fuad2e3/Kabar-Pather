@@ -116,9 +116,10 @@ gantt
 - [x] **End-to-End Full Project & User Account Audit**: Verified 100% of user lifecycle flows (registration, login, buy/checkout, atomic stock decrement, multi-attribute order tracking by phone/ref/email), admin portal operations (product CRUD, live card preview, order status updates, and user suspension toggle with offline localStorage synchronization), and multi-device responsive design across ultra-compact 380px, mobile 768px, tablet 1199px, and desktop 1200px+ with 214 passing regression tests.
 
 ### ✅ Milestone 10: Agency Attribution & Developer Branding Placement
-- [x] **Placement Optimization**: Conducted UX evaluation and positioned agency branding badge at the bottom right of the sub-footer (`.footer-dev-credit` in `.footer-bottom-container`) alongside copyright and 24/7 emergency dispatch notice.
-- [x] **Branding Badge & Interactive Link**: Integrated "Develop by Softece" badge linking to `https://softece.com` (`#developerBrandLink`, target `_blank`, `rel="noopener noreferrer"`) styled with sapphire pill background (`rgba(56, 189, 248, 0.1)`), electric icon `⚡`, hover lift animation, and luminous glow.
-- [x] **Responsive Adaptation**: Styled `.footer-bottom-container` to automatically center attribution on mobile screens without viewport overflow or visual congestion.
+- [x] **Footer Placement Optimization**: Conducted UX evaluation and positioned agency branding badge at the bottom right of the sub-footer (`.footer-dev-credit` in `.footer-bottom-container`) alongside copyright and 24/7 emergency dispatch notice.
+- [x] **Account Modal & Bar Attribution**: Integrated "Develop by Softece" branding under the account creation button (`#userRegSubmitBtn`) inside `.custom-modal-box` (`#authModal`), under the checkout drawer guest account creation prompt (`#checkoutAuthPrompt`), and in the user profile menu dropdown (`#userMenuDropdown`).
+- [x] **Branding Badge & Interactive Link**: Integrated "Develop by Softece" badge linking to `https://softece.com` (`#developerBrandLink`, `#authDeveloperBrandLink`, `#checkoutAuthDevBrandLink`, target `_blank`, `rel="noopener noreferrer"`) styled with sapphire pill background (`rgba(56, 189, 248, 0.1)`), electric icon `⚡`, hover lift animation, and luminous glow.
+- [x] **Responsive Adaptation**: Styled `.footer-bottom-container`, `.auth-modal-dev-credit`, and `.auth-prompt-dev-credit` to automatically center attribution across Day & Night modes without viewport overflow or visual congestion.
 
 ---
 

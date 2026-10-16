@@ -668,6 +668,13 @@ document.addEventListener('DOMContentLoaded', () => {
           <button type="button" class="user-dropdown-item danger" id="userLogoutBtn">
             🚪 লগআউট
           </button>
+          <div class="user-dropdown-dev-credit">
+            <span>Develop by</span>
+            <a href="https://softece.com" target="_blank" rel="noopener noreferrer" class="dev-brand-link" title="Softece - Software & Web Development Agency">
+              <span class="dev-brand-icon">⚡</span>
+              <strong>Softece</strong>
+            </a>
+          </div>
         </div>
       `;
 

@@ -177,8 +177,12 @@ This document serves as the persistent memory, architectural history, Architectu
 
 ### ADR-016: Agency Attribution & Developer Branding Placement
 - **Status**: Implemented & Verified.
-- **Context**: The development agency (Softece) required professional attribution ("Develop by Softece" linking to `https://softece.com`) on the website without interfering with the solemn Islamic aesthetic or emergency contact workflow.
-- **Decision**: Placed the developer credit in the bottom-right corner of the copyright sub-footer (`.footer-bottom-container`). Styled as an elegant, non-intrusive sapphire badge with an electric icon (`⚡`), subtle hover glow, and responsive auto-centering on mobile devices.
+- **Context**: The development agency (Softece) required professional attribution ("Develop by Softece" linking to `https://softece.com`) on the website without interfering with the solemn Islamic aesthetic or emergency contact workflow. Furthermore, when users create an account, the attribution was requested directly under the account creation button/bar.
+- **Decision**: 
+  1. Positioned developer credit badge in the bottom-right corner of the copyright sub-footer (`.footer-bottom-container`).
+  2. Integrated developer attribution inside the account creation modal (`#authModal`) directly under the "অ্যাকাউন্ট তৈরি করুন" submit button (`#userRegSubmitBtn`).
+  3. Integrated developer attribution under the checkout drawer guest account creation prompt (`#checkoutAuthPrompt`) and inside the user menu dropdown (`#userMenuDropdown`).
+  4. Styled as an elegant, non-intrusive sapphire badge with an electric icon (`⚡`), subtle hover glow, and responsive auto-centering on mobile devices across Day and Night themes.
 - **Consequences**:
   - Respects the respectful Islamic tone of the platform while providing standard developer attribution.
   - Zero layout shift, zero viewport overflow, and fully responsive across all device breakpoints.

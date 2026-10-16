@@ -1495,6 +1495,57 @@ select::placeholder {
   line-height: 1;
 }
 
+.auth-modal-dev-credit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--lavender-200);
+}
+
+.auth-prompt-dev-credit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(56, 189, 248, 0.35);
+}
+
+.user-dropdown-dev-credit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  padding: 10px 14px 6px;
+  margin-top: 6px;
+  border-top: 1px solid var(--lavender-100);
+}
+
+[data-theme="dark"] .auth-modal-dev-credit {
+  border-top-color: rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .auth-prompt-dev-credit {
+  border-top-color: rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .user-dropdown-dev-credit {
+  border-top-color: rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
+}
+
 /* --------------------------------------------------------------------------
    FLOATING QUICK ACTIONS
    -------------------------------------------------------------------------- */
