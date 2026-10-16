@@ -146,7 +146,25 @@ This document serves as the persistent memory, architectural history, Architectu
   - Generous touch targets and clean text spacing make emergency orders and hotlines immediately readable.
   - Complete responsiveness across desktop, tablet, and mobile screens.
 
+### ADR-014: Proportional Section & Footer Spacing Calibration (100px:60px Ratio)
+- **Status**: Implemented & Verified.
+- **Context**: The user observed an excessively large gap/blank dark space above the footer columns. Section bottom paddings (up to 95px) combined with footer top padding (70px) produced over 165px of empty space.
+- **Decision**: Scale all primary section paddings and footer padding down by ~40% (applying the user's 100px -> 60px proportion):
+  - `.site-footer`: `70px 0 0` -> `42px 0 0`.
+  - `.footer-container`: `padding-bottom: 54px` -> `34px`.
+  - `.how-to-order-section`: `80px 0 95px` -> `48px 0 52px`.
+  - `.decorative-bar`: `margin: 10px auto 46px` -> `8px auto 26px`.
+  - `.trust-features-section`: `75px 0 85px` -> `48px 0 52px`.
+  - `.products-section`: `80px 0 90px` -> `50px 0 54px`.
+  - `.hero-section`: `60px 0 70px` -> `42px 0 46px`.
+  - Mobile `@media (max-width: 768px)`: Explicit compact section paddings (`30px–38px`).
+- **Consequences**:
+  - The blank dark band above the footer is reduced to a clean, balanced gap.
+  - Overall page scannability is improved without excessive scrolling.
+  - 100% test compatibility and visual harmony in both Day and Night modes.
+
 ---
+
 
 
 ## 3. Persistent Constants & Keys

@@ -390,7 +390,7 @@ select::placeholder {
 .hero-section {
   position: relative;
   background: linear-gradient(135deg, #f6f9fe 0%, #eef5fc 45%, #e3eefb 100%);
-  padding: 60px 0 70px;
+  padding: 42px 0 46px;
   overflow: hidden;
   border-bottom: 1px solid rgba(207, 224, 247, 0.5);
 }
@@ -643,7 +643,7 @@ select::placeholder {
    SECTION 2: PRODUCTS (আমাদের পণ্য)
    -------------------------------------------------------------------------- */
 .products-section {
-  padding: 80px 0 90px;
+  padding: 50px 0 54px;
   background-color: var(--white);
 }
 
@@ -684,7 +684,7 @@ select::placeholder {
   font-size: 1.15rem;
   color: var(--text-muted);
   max-width: 650px;
-  margin: 0 auto 36px;
+  margin: 0 auto 24px;
 }
 
 /* --------------------------------------------------------------------------
@@ -913,7 +913,7 @@ select::placeholder {
    SECTION 3: TRUST FEATURES & ORDER CTA BANNER
    -------------------------------------------------------------------------- */
 .trust-features-section {
-  padding: 75px 0 85px;
+  padding: 48px 0 52px;
   background: linear-gradient(180deg, #f9f5fc 0%, #f4ecf9 100%);
   border-top: 1px solid var(--lavender-border);
   border-bottom: 1px solid var(--lavender-border);
@@ -1157,7 +1157,7 @@ select::placeholder {
    SECTION 4: HOW TO ORDER (কীভাবে অর্ডার করবেন?)
    -------------------------------------------------------------------------- */
 .how-to-order-section {
-  padding: 80px 0 95px;
+  padding: 48px 0 52px;
   background-color: var(--bg-card);
 }
 
@@ -1166,7 +1166,7 @@ select::placeholder {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  margin: 10px auto 46px;
+  margin: 8px auto 26px;
   max-width: 220px;
 }
 
@@ -1270,7 +1270,7 @@ select::placeholder {
   position: relative;
   background: linear-gradient(180deg, #002254 0%, #001533 100%);
   color: #cbd5e1;
-  padding: 70px 0 0;
+  padding: 42px 0 0;
   overflow: hidden;
 }
 
@@ -1290,7 +1290,7 @@ select::placeholder {
   gap: 40px;
   position: relative;
   z-index: 2;
-  padding-bottom: 54px;
+  padding-bottom: 34px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -3504,6 +3504,31 @@ select::placeholder {
 
 /* 3. Mobile Screens & Small Tablets (max-width: 768px) */
 @media (max-width: 768px) {
+  /* Compact Section Paddings on Mobile */
+  .hero-section {
+    padding: 30px 0 34px !important;
+  }
+
+  .products-section {
+    padding: 34px 0 38px !important;
+  }
+
+  .trust-features-section {
+    padding: 34px 0 38px !important;
+  }
+
+  .how-to-order-section {
+    padding: 34px 0 38px !important;
+  }
+
+  .site-footer {
+    padding: 30px 0 0 !important;
+  }
+
+  .footer-container {
+    padding-bottom: 26px !important;
+  }
+
   /* Storefront Products 2-Column Responsive Grid */
   .products-grid {
     grid-template-columns: repeat(2, 1fr) !important;

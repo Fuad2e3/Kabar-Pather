@@ -196,4 +196,9 @@ Every button, icon, heading, and body text element is engineered to guarantee im
 - **Vertical Button Stacking**: To eliminate horizontal cramping and ensure maximum legibility for the 11-digit phone number and Bengali WhatsApp message, `.banner-actions` enforces `flex-direction: column; align-items: stretch; gap: 12px; min-width: 270px;`.
 - **Top Priority Phone Call**: The phone button (`#bannerCallBtn`, `01844-687759`) is positioned directly on top of the WhatsApp button (`#bannerWhatsappBtn`), providing instantaneous one-tap emergency calling with prominent, clean typography and full touch-target width across desktop and mobile.
 
+### 8.5 Proportional Section & Footer Spacing Calibration
+- **Tighter Vertical Flow**: Section paddings (previously 80px–95px) and footer padding (previously 70px) created oversized empty dark bands in dark mode. Vertical paddings were re-calibrated proportionally (~60% ratio: 100px -> 60px) to `42px–54px` on desktop and `30px–40px` on mobile.
+- **Enhanced Scannability**: Eliminates excessive empty space above footer columns and between sections, keeping content cohesive and accessible on all viewport heights.
+
+
 
