@@ -147,3 +147,25 @@ The typography pairs **Hind Siliguri** (for natural Bengali scripts) with **Inte
 - **Strict Device Detection**: Theme follows user's operating system mode automatically using `window.matchMedia('(prefers-color-scheme: dark)')`.
 - **Zero UI Button Distraction**: Manual Day/Night toggle buttons are deliberately eliminated from both Storefront and Admin interfaces.
 - **Mobile Address Bar Chrome Sync**: Dynamic `<meta name="theme-color">` updates to `#003885` (Day) and `#060d17` (Night) for seamless integration with mobile browser UI.
+
+---
+
+## 7. Contrast & Legibility Standards (WCAG AAA/AA)
+
+Every button, icon, heading, and body text element is engineered to guarantee immediate scannability in high-glare daytime and OLED night environments:
+
+| Theme Context | Foreground Token / Hex | Surface Background | Measured Ratio | WCAG Compliance |
+| :--- | :--- | :--- | :--- | :--- |
+| **Day Primary Brand** | `#003885` | `#ffffff` | **11.03:1** | Pass (AAA) |
+| **Day Body Text** | `#334155` | `#ffffff` | **10.35:1** | Pass (AAA) |
+| **Day Muted / Placeholders** | `#64748b` | `#ffffff` | **4.76:1** | Pass (AA) |
+| **Day Primary Button Text** | `#ffffff` | `#003885` | **11.03:1** | Pass (AAA) |
+| **Day WhatsApp Button** | `#ffffff` | `#15803d` (Forest Green) | **5.02:1** | Pass (AA) |
+| **Night Headings & Titles** | `#f0f7ff` | `#0b1626` (Card) | **16.81:1** | Pass (AAA) |
+| **Night Body Text** | `#cbd5e1` | `#0b1626` (Card) | **12.23:1** | Pass (AAA) |
+| **Night Muted / Placeholders** | `#94a3b8` | `#0d1b2e` (Input) | **6.75:1** | Pass (AAA) |
+| **Night Primary Button Text** | `#ffffff` | `#003885` (Sapphire) | **11.03:1** | Pass (AAA) |
+| **Night Footer Text** | `#cbd5e1` | `#040810` (Footer) | **13.50:1** | Pass (AAA) |
+| **Night Footer Phone Link** | `#ffffff` | `#040810` (Footer) | **20.05:1** | Pass (AAA) |
+
+- **Invariance Rule**: `--white` is mathematically invariant (`#ffffff`) in both Light and Dark themes. Surfaces must always use `--bg-card`, `--bg-page`, or `--bg-subtle`.

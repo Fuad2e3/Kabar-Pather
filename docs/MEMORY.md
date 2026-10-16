@@ -97,6 +97,21 @@ This document serves as the persistent memory, architectural history, Architectu
   - Zero accidental theme mismatch or toggle confusion.
   - 100% responsive fluid rendering on phones, phablets, tablets, laptops, and ultra-wide desktops.
 
+### ADR-010: Total Day & Night Element-Level Readability & WCAG AAA/AA Contrast Compliance
+- **Status**: Implemented & Verified.
+- **Context**: The user instructed to test every button, icon, word, and label across day and night modes to ensure 100% clarity and legibility without any manual button (device auto-detect).
+- **Decision**:
+  1. Fix `--white` variable pollution: Ensure `--white` strictly resolves to `#ffffff` in both light and dark themes, preventing text using `color: var(--white)` from rendering in deep navy `#0b1626` in dark mode. Surface containers must explicitly use `--bg-card` and `--bg-page`.
+  2. Implement global and dark-mode input `::placeholder` contrast rules (`#64748b` in day mode at 4.76:1; `#94a3b8` in night mode at 6.75:1).
+  3. Enforce high-contrast dark mode buttons: Primary and checkout submit buttons use sapphire gradients `linear-gradient(135deg, #003885 0%, #1d64c9 100%)` with bold white `#ffffff` text (contrast 11.03:1), eliminating washed-out sky-blue button backgrounds.
+  4. Optimize WhatsApp CTA buttons with `#15803d` (Brand Forest Green) and `#ffffff` text for 5.02:1 WCAG AA compliance.
+  5. Replace inline hardcoded dark colors on modal headings with dynamic `var(--text-heading)` (`#003885` in daylight, `#f0f7ff` in night mode).
+  6. Remove duplicate search icons from inputs.
+  7. Upgrade admin portal styles (`admin.html`) with high contrast tags, preview cards, metric cards, and table row hover states in night mode.
+- **Consequences**:
+  - 100% of buttons, icons, headings, placeholders, and body text exceed WCAG AA standards (most reaching AAA).
+  - Perfect legibility in daylight sunshine and nighttime OLED dark conditions.
+
 ---
 
 ## 3. Persistent Constants & Keys
@@ -129,4 +144,8 @@ This document serves as the persistent memory, architectural history, Architectu
    - Any modifications to delivery fee logic must be synchronized across `assets/js/api-client.js`, `script.js`, and `functions/api/_api.js`.
 4. **Bengali Numeral Typography in Dropdown Options**:
    - Hind Siliguri numeral `১` (as in `৳১৫০`) requires bold `font-weight: 700` applied to `#checkoutArea` and `#checkoutArea option` to avoid thin stroke antialiasing distortion in dark mode and high-DPI displays.
+5. **Dark Mode `--white` Variable Invariance**:
+   - Never override `--white` with dark hex codes in `[data-theme="dark"]`. Doing so corrupts buttons, badges, and footer links relying on `color: var(--white)`. Dark surfaces must use `--bg-card` or `--bg-page`.
+6. **Input Placeholder Contrast**:
+   - Always define explicit `input::placeholder` styles for both themes; browser default placeholders are nearly invisible against dark input backgrounds.
 

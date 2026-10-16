@@ -221,7 +221,7 @@
         <div style="margin-bottom: 24px; display: flex; flex-direction: column; gap: 14px; align-items: center;">
           <!-- Live Search Input -->
           <div style="width: 100%; max-width: 480px; position: relative;">
-            <input type="text" id="catalogSearchInput" class="checkout-input" placeholder="🔍 পণ্য খুঁজুন (যেমন কাফন, আতর, প্যাকেজ)..." style="padding-left: 38px; border-radius: var(--radius-pill); font-size: 0.95rem;">
+            <input type="text" id="catalogSearchInput" class="checkout-input" placeholder="পণ্য খুঁজুন (যেমন: কাফন, আতর, প্যাকেজ)..." style="padding-left: 38px; border-radius: var(--radius-pill); font-size: 0.95rem;">
             <span style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); opacity: 0.6; pointer-events: none;">🔍</span>
           </div>
 
@@ -749,7 +749,7 @@
   <div class="custom-modal-backdrop" id="trackOrderModal">
     <div class="custom-modal-box">
       <button class="custom-modal-close" id="closeTrackModalBtn">&times;</button>
-      <h3 style="color:var(--primary-dark);margin-bottom:8px">আমার অর্ডার ট্র্যাকিং</h3>
+      <h3 style="color:var(--text-heading);margin-bottom:8px">আমার অর্ডার ট্র্যাকিং</h3>
       <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:16px">আপনার ফোন নম্বর অথবা অর্ডার আইডি লিখে সার্চ করুন।</p>
       
       <div style="display:flex;gap:8px;margin-bottom:16px">
@@ -769,12 +769,12 @@
       <div style="width:56px;height:56px;background:#dcfce7;color:#166534;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:1.8rem">
         ✓
       </div>
-      <h3 style="color:var(--primary-dark);margin-bottom:6px">আলহামদুলিল্লাহ! আপনার অর্ডার গৃহীত হয়েছে</h3>
+      <h3 style="color:var(--text-heading);margin-bottom:6px">আলহামদুলিল্লাহ! আপনার অর্ডার গৃহীত হয়েছে</h3>
       <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:16px">
         অর্ডার রেফারেন্স: <strong id="successOrderRef" style="color:var(--primary);font-size:1.1rem;font-family:monospace"></strong>
       </p>
 
-      <div style="background:var(--lavender-50);border-radius:var(--radius-sm);padding:14px;margin-bottom:18px;text-align:left;font-size:0.88rem">
+      <div style="background:var(--lavender-50);border:1px solid var(--lavender-border);border-radius:var(--radius-sm);padding:14px;margin-bottom:18px;text-align:left;font-size:0.88rem">
         <div><strong>প্রাপক:</strong> <span id="successCustomerName"></span></div>
         <div><strong>ফোন:</strong> <span id="successCustomerPhone"></span></div>
         <div><strong>ঠিকানা:</strong> <span id="successCustomerAddress"></span></div>

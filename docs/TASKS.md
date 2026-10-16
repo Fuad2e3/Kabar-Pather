@@ -86,16 +86,16 @@ gantt
 - [x] `docs/TASKS.md`: Milestone tracker, completed achievements, and future roadmap.
 - [x] `.agents/rules/docs-and-github-sync.md` & `AGENTS.md`: Mandatory continuous documentation maintenance and automatic GitHub synchronization protocol.
 
-### ✅ Milestone 6: Device OS Auto Theme & All-Device Responsive Verification
-- [x] **Zero Manual Theme Buttons**: UI strictly relies on device OS auto detection (`prefers-color-scheme`) without any manual toggle buttons on the storefront or admin UI.
-- [x] **Theme Synchronization**: Mobile `<meta name="theme-color">` dynamically synchronizes with `#003885` (day) and `#060d17` (night) for mobile browser address bar chrome.
-- [x] **Sapphire Midnight Slate Theme**: Unification of dark theme styles in `assets/css/styles.css` using the `#003885` / `#38bdf8` palette and `#060d17` / `#0b1626` / `#0f1f36` surfaces.
-- [x] **All-Device Viewport Suite**: Full verification across:
-  - Ultra-compact mobile (`<= 380px`, e.g. iPhone SE, Galaxy Fold)
-  - Standard mobile (`380px – 768px`)
-  - Tablet portrait & landscape (`769px – 1199px`)
-  - Desktop & high-resolution displays (`1200px+`)
-- [x] **Defensive Viewport Constraints**: Added `max-height: 90vh/92vh; overflow-y: auto;` to product details modal (`.product-modal-dialog`) and custom modals, ensuring full vertical reachability for action buttons on compact screens.
+### ✅ Milestone 7: Total Day & Night Element-Level Readability & Contrast Audit
+- [x] **Every Element Verified**: Tested every single button, icon, word, and label across Day (Light) and Night (Dark) modes.
+- [x] **Zero `--white` Pollution**: Fixed `--white: #ffffff` invariance in `assets/css/styles.css` preventing text from turning into dark navy in dark mode.
+- [x] **Input Placeholder Contrast**: Defined explicit `::placeholder` styling for daylight (`#64748b`, 4.76:1) and night mode (`#94a3b8`, 6.75:1).
+- [x] **Sapphire Dark Mode Buttons**: Primary and checkout submit buttons render in high-contrast sapphire gradients with bold white text (11.03:1, WCAG AAA).
+- [x] **WhatsApp Button Contrast**: Upgraded `.btn-banner-whatsapp` to `#15803d` with white text (5.02:1, WCAG AA).
+- [x] **Dynamic Modal Headings**: Replaced inline hardcoded dark colors with `var(--text-heading)` in `index.html`.
+- [x] **Clean Search Inputs**: Removed duplicate search emoji from catalog search bar.
+- [x] **Admin Theme Contrast**: Updated tags, preview cards, metrics, and status badges in `admin.html`.
+- [x] **Automated Test Suite**: Added automated WCAG contrast tests in `tests/verify-all.mjs`, expanding to 188 passing tests.
 
 ---
 

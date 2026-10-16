@@ -121,4 +121,17 @@ Ensure all automated verification checks (165+ tests) return clean exit code 0.
 3. **Defensive Viewport Height Standards**:
    - Every modal dialog (`.product-modal-dialog`, `.custom-modal-box`) must include `max-height: 90vh/92vh; overflow-y: auto;` to guarantee all interactive buttons remain reachable on compact phone viewports.
 
+---
+
+## 9. Contrast & Theme Invariance Rules
+
+1. **Mathematical Invariance of `--white`**:
+   - `--white` must ALWAYS be defined as `#ffffff;` in both `:root` and `[data-theme="dark"]`. Never assign dark hexes to `--white`. Surfaces must exclusively use `--bg-card`, `--bg-page`, or `--bg-subtle`.
+2. **Explicit Input Placeholder Styling**:
+   - Inputs, textareas, and selects must define high-contrast `::placeholder` styling for both day mode (`#64748b`) and night mode (`#94a3b8`).
+3. **Primary Button Contrast Invariance**:
+   - Primary action buttons in dark mode must use sapphire gradients with pure `#ffffff` text to guarantee 11:1+ contrast ratios.
+4. **Clean Input Semantics**:
+   - Search input placeholders must never contain redundant icon emojis when a physical icon element is positioned inside the input wrapper.
+
 

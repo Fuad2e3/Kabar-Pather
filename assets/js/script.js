@@ -714,7 +714,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       return `
-        <div style="background:#f8faf9;border:1px solid var(--lavender-border);border-radius:var(--radius-sm);padding:12px;margin-bottom:10px">
+        <div class="tracking-result-card" style="background:var(--lavender-50);border:1px solid var(--lavender-border);border-radius:var(--radius-sm);padding:12px;margin-bottom:10px">
           <div style="display:flex;justify-content:space-between;margin-bottom:6px">
             <strong style="font-family:monospace;color:var(--primary);font-size:1rem">#${escapeHtml(o.ref)}</strong>
             <span style="background:${statusBg};color:${statusColor};padding:2px 8px;border-radius:4px;font-size:0.75rem;font-weight:700">
@@ -724,7 +724,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div style="font-size:0.85rem;color:var(--text-muted);margin-bottom:6px">
             প্রাপক: <b>${escapeHtml(o.customerName || o.name || 'গ্রাহক')}</b> · ঠিকানা: ${escapeHtml(o.address || o.area || '')}
           </div>
-          <div style="font-size:0.95rem;font-weight:800;color:var(--primary-dark)">
+          <div style="font-size:0.95rem;font-weight:800;color:var(--text-heading)">
             সর্বমোট: ৳${toBengaliNum(o.total || o.total_amount || 0)}
           </div>
         </div>

@@ -92,8 +92,8 @@
   --bg-page: #060d17;
   --bg-card: #0b1626;
   --bg-subtle: #0f1f36;
-  --white: #0b1626;
-  --off-white: #08111f;
+  --white: #ffffff;
+  --off-white: #f8fafc;
 
   /* Text Colors */
   --text-heading: #f0f7ff;
@@ -158,6 +158,24 @@ button {
   background: none;
   font-family: inherit;
   transition: var(--transition-fast);
+}
+
+input, textarea, select {
+  font-family: inherit;
+}
+
+input::placeholder,
+textarea::placeholder,
+select::placeholder {
+  color: #64748b;
+  opacity: 1;
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder,
+[data-theme="dark"] select::placeholder {
+  color: #94a3b8;
+  opacity: 1;
 }
 
 .container {
@@ -986,13 +1004,13 @@ button {
 }
 
 .btn-banner-whatsapp {
-  background-color: var(--whatsapp);
-  color: var(--white);
+  background-color: #15803d;
+  color: #ffffff !important;
   padding: 12px 24px;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: var(--radius-pill);
-  box-shadow: 0 4px 14px var(--whatsapp-glow);
+  box-shadow: 0 4px 14px rgba(21, 128, 61, 0.35);
 }
 
 .btn-banner-whatsapp svg {
@@ -1001,10 +1019,10 @@ button {
 }
 
 .btn-banner-whatsapp:hover {
-  background-color: var(--whatsapp-hover);
+  background-color: #166534;
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px var(--whatsapp-glow);
-  color: var(--white);
+  box-shadow: 0 8px 22px rgba(21, 128, 61, 0.45);
+  color: #ffffff !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -1012,7 +1030,7 @@ button {
    -------------------------------------------------------------------------- */
 .how-to-order-section {
   padding: 80px 0 95px;
-  background-color: var(--white);
+  background-color: var(--bg-card);
 }
 
 .decorative-bar {
@@ -1058,7 +1076,7 @@ button {
   width: 68px;
   height: 68px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--primary) 0%, #5f2299 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
   color: var(--white);
   display: flex;
   align-items: center;
@@ -1123,7 +1141,7 @@ button {
 .site-footer {
   position: relative;
   background: linear-gradient(180deg, #002254 0%, #001533 100%);
-  color: #dfd6eb;
+  color: #cbd5e1;
   padding: 70px 0 0;
   overflow: hidden;
 }
@@ -1175,13 +1193,13 @@ button {
 
 .footer-brand-tagline {
   font-size: 0.82rem;
-  color: #c9bcdc;
+  color: #94a3b8;
 }
 
 .footer-about-text {
   font-size: 0.95rem;
   line-height: 1.65;
-  color: #b7a9cb;
+  color: #cbd5e1;
 }
 
 .footer-heading {
@@ -1210,7 +1228,7 @@ button {
 
 .footer-link-list a {
   font-size: 0.98rem;
-  color: #cbbede;
+  color: #cbd5e1;
   transition: var(--transition-fast);
 }
 
@@ -1245,7 +1263,7 @@ button {
 .contact-text {
   font-size: 0.92rem;
   line-height: 1.5;
-  color: #cbbede;
+  color: #cbd5e1;
 }
 
 .contact-link.phone-link {
@@ -1293,10 +1311,11 @@ button {
 }
 
 .footer-bottom {
-  background-color: rgba(18, 3, 30, 0.95);
+  background-color: #00122e;
   padding: 20px 0;
   font-size: 0.88rem;
-  color: #9c8fae;
+  color: #94a3b8;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer-bottom-container {
@@ -1308,7 +1327,7 @@ button {
 }
 
 .emergency-notice {
-  color: #cbbce1;
+  color: #cbd5e1;
   font-weight: 500;
 }
 
@@ -2557,6 +2576,14 @@ button {
   }
 }
 
+@media (max-width: 768px) {
+  [data-theme="dark"] .nav-menu {
+    background-color: #0b1626 !important;
+    border-bottom: 1px solid #1e355b !important;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.65) !important;
+  }
+}
+
 /* Hero Section in Night Mode */
 [data-theme="dark"] .hero-section {
   background: linear-gradient(135deg, #070e1c 0%, #0d1a30 50%, #081120 100%);
@@ -2724,6 +2751,32 @@ button {
 
 [data-theme="dark"] .btn-add-cart:hover {
   background: #004bb3;
+}
+
+[data-theme="dark"] .btn-primary,
+[data-theme="dark"] .btn-checkout-submit,
+[data-theme="dark"] .btn-product-view,
+[data-theme="dark"] .btn-call-header {
+  background: linear-gradient(135deg, #003885 0%, #1d64c9 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(56, 189, 248, 0.4) !important;
+  box-shadow: 0 4px 16px rgba(0, 56, 133, 0.45);
+}
+
+[data-theme="dark"] .btn-primary:hover,
+[data-theme="dark"] .btn-checkout-submit:hover,
+[data-theme="dark"] .btn-product-view:hover,
+[data-theme="dark"] .btn-call-header:hover {
+  background: linear-gradient(135deg, #004bb3 0%, #2563eb 100%) !important;
+  border-color: #38bdf8 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .step-icon-wrap {
+  background: linear-gradient(135deg, #003885 0%, #1d64c9 100%);
+  color: #ffffff;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
 }
 
 /* Category Filter Tabs in Night Mode */

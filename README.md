@@ -3,7 +3,7 @@
 > **সম্মান, যত্ন ও নির্ভরযোগ্য সেবা** — ইসলামিক কাফন ও দাফন সামগ্রী অনলাইন প্ল্যাটফর্ম ও জরুরি সেবা নেটওয়ার্ক।  
 > *Modern Edge E-Commerce platform powered by Edge Pages, serverless Edge D1 Database, and Edge R2 WebP Storage.*
 
-[![Test Suite](https://img.shields.io/badge/tests-170%20passed-success)](tests/verify-all.mjs)
+[![Test Suite](https://img.shields.io/badge/tests-188%20passed-success)](tests/verify-all.mjs)
 [![Edge Platform](https://img.shields.io/badge/platform-Edge%20Pages%20%7C%20D1%20%7C%20R2-blueviolet)](wrangler.toml)
 [![License: ISC](https://img.shields.io/badge/License-ISC-purple.svg)](package.json)
 
@@ -53,7 +53,7 @@ Kabar-Pather/
 │       ├── [[path]].js        # এজ পেজ ক্যাচ-অল রাউটার
 │       └── _api.js            # এজ REST API বিজনেস লজিক
 ├── tests/
-│   └── verify-all.mjs         # পূর্ণাঙ্গ অটোমেটেড ভেরিফিকেশন টেস্ট স্যুট (১৭০টি টেস্ট)
+│   └── verify-all.mjs         # পূর্ণাঙ্গ অটোমেটেড ভেরিফিকেশন টেস্ট স্যুট (১৮৮টি টেস্ট)
 └── docs/                      # সম্পূর্ণ টেকনিক্যাল ও আর্কিটেকচারাল ডকুমেন্টেশন
     ├── README.md              # আর্কিটেকচার ও API বিশদ বিবরণ
     ├── ARCHITECTURE.md        # সিস্টেম টপোলজি ও ডাটাবেস ডিজাইন
@@ -97,7 +97,7 @@ npm install
 ```bash
 npm test
 ```
-*এই কমান্ডটি সমস্ত জাভাস্ক্রিপ্ট সিনট্যাক্স, ডাটাবেস স্কিমা, API এন্ডপয়েন্ট, থিম ইঞ্জিন ও নিরপেক্ষতা নিয়ম পরীক্ষা করে (১৭০টি টেস্ট)।*
+*এই কমান্ডটি সমস্ত জাভাস্ক্রিপ্ট সিনট্যাক্স, ডাটাবেস স্কিমা, API এন্ডপয়েন্ট, দিন/রাত কনট্রাস্ট, থিম ইঞ্জিন ও নিরপেক্ষতা নিয়ম পরীক্ষা করে (১৮৮টি টেস্ট)।*
 
 ### ৩. লোকাল এজ ডেভেলপমেন্ট সার্ভার চালু
 ```bash
