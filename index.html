@@ -218,20 +218,25 @@
         </div>
 
         <!-- Product Filter & Search Bar -->
-        <div style="margin-bottom: 24px; display: flex; flex-direction: column; gap: 14px; align-items: center;">
-          <!-- Live Search Input -->
-          <div style="width: 100%; max-width: 480px; position: relative;">
-            <input type="text" id="catalogSearchInput" class="checkout-input" placeholder="পণ্য খুঁজুন (যেমন: কাফন, আতর, প্যাকেজ)..." style="padding-left: 38px; border-radius: var(--radius-pill); font-size: 0.95rem;">
-            <span style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); opacity: 0.6; pointer-events: none;">🔍</span>
+        <div class="catalog-filter-section">
+          <!-- Live Search Input (Single Crisp SVG Icon) -->
+          <div class="catalog-search-wrap">
+            <svg class="catalog-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="catalogSearchInput" class="checkout-input catalog-search-input" placeholder="পণ্য খুঁজুন (যেমন: কাফন, আতর, প্যাকেজ)..." autocomplete="off">
           </div>
 
-          <!-- Category Filter Pills Strip -->
-          <div class="category-tabs" id="categoryTabs">
-            <button type="button" class="category-tab-btn active" data-category="all">সকল সামগ্রী</button>
-            <button type="button" class="category-tab-btn" data-category="kafan">কাফনের কাপড়</button>
-            <button type="button" class="category-tab-btn" data-category="attar">আতর ও সুরমা</button>
-            <button type="button" class="category-tab-btn" data-category="package">সম্পূর্ণ প্যাকেজ</button>
-            <button type="button" class="category-tab-btn" data-category="dafon">দাফন সামগ্রী</button>
+          <!-- Category Filter Pills Strip (Scrollable on Mobile) -->
+          <div class="category-tabs-wrapper">
+            <div class="category-tabs" id="categoryTabs" role="tablist" aria-label="পণ্য ক্যাটাগরি ফিল্টার">
+              <button type="button" class="category-tab-btn active" data-category="all" role="tab" aria-selected="true">সকল সামগ্রী</button>
+              <button type="button" class="category-tab-btn" data-category="kafan" role="tab" aria-selected="false">কাফনের কাপড়</button>
+              <button type="button" class="category-tab-btn" data-category="attar" role="tab" aria-selected="false">আতর ও সুরমা</button>
+              <button type="button" class="category-tab-btn" data-category="package" role="tab" aria-selected="false">সম্পূর্ণ প্যাকেজ</button>
+              <button type="button" class="category-tab-btn" data-category="dafon" role="tab" aria-selected="false">দাফন সামগ্রী</button>
+            </div>
           </div>
         </div>
 

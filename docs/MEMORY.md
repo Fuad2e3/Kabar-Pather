@@ -112,6 +112,19 @@ This document serves as the persistent memory, architectural history, Architectu
   - 100% of buttons, icons, headings, placeholders, and body text exceed WCAG AA standards (most reaching AAA).
   - Perfect legibility in daylight sunshine and nighttime OLED dark conditions.
 
+### ADR-009: Mobile Viewport Anchoring, Single SVG Search Icon, and Touch-Scrollable Category Strip
+- **Status**: Implemented & Verified.
+- **Context**: On narrow mobile screens (such as 360px viewport), the unconstrained category pills container expanded to ~622px, blowing out the mobile document layout width. This caused `.floating-quick-actions` (WhatsApp, call, scroll-top) to anchor to the far right of the 622px layout, making them invisible until the user manually pinched or zoomed the screen out. Additionally, the search bar displayed duplicate search icons (placeholder emoji + overlay `<span>`), and category pill names were not horizontally scrollable.
+- **Decision**:
+  1. Enforce `width: 100%; max-width: 100%; overflow-x: hidden;` on `html` and `body`.
+  2. Wrap category pills in `.category-tabs-wrapper` with mobile edge-to-edge bleed (`width: 100vw; margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%); overflow: hidden;`) and style `.category-tabs` with `overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; touch-action: pan-x !important; justify-content: flex-start !important;`.
+  3. Anchor `.floating-quick-actions` to the true mobile viewport using `position: fixed !important; right: max(16px, env(safe-area-inset-right, 16px)) !important; bottom: max(20px, env(safe-area-inset-bottom, 20px)) !important; z-index: 99999 !important; transform: translateZ(0) !important;`.
+  4. Standardize the catalog search bar into `.catalog-search-wrap` with a single crisp inline SVG icon (`.catalog-search-icon`) and clean emoji-free placeholder text.
+- **Consequences**:
+  - Floating WhatsApp, phone call, and top buttons are directly and permanently visible right on mobile viewports without pinching or zooming.
+  - Search bar displays exactly one crisp SVG icon with high contrast and zero emoji duplication.
+  - Product category pills glide smoothly horizontally with native touch gesture scrolling without document blowout.
+
 ---
 
 ## 3. Persistent Constants & Keys

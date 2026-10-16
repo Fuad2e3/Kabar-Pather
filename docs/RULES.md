@@ -134,4 +134,18 @@ Ensure all automated verification checks (165+ tests) return clean exit code 0.
 4. **Clean Input Semantics**:
    - Search input placeholders must never contain redundant icon emojis when a physical icon element is positioned inside the input wrapper.
 
+---
+
+## 10. Mobile Viewport Containment & Touch Interaction Rules
+
+1. **Document-Level Blowout Prevention**:
+   - `html` and `body` must always enforce `width: 100%; max-width: 100%; overflow-x: hidden;`.
+   - Never allow child elements or containers to expand beyond 100vw without an internal scrolling container.
+2. **Floating Action Viewport Pinning**:
+   - Floating action groups (`.floating-quick-actions`) must always use `position: fixed !important;` with safe area insets (`env(safe-area-inset-right)`, `env(safe-area-inset-bottom)`) and high z-index (`99999`) with `transform: translateZ(0)` to guarantee permanent visibility on screen regardless of mobile device dimensions.
+3. **Touch-Scrollable Strips & Wrappers**:
+   - Any horizontal pill strip (such as `.category-tabs`) must use `overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; touch-action: pan-x !important; justify-content: flex-start !important;` with `flex-shrink: 0` on children so touch scrolling operates naturally without scrolling lockout.
+4. **Clean Icon & Input Semantics**:
+   - Use crisp inline SVGs (`.catalog-search-icon`) rather than emoji characters in placeholders or span tags to eliminate visual duplication across platforms.
+
 

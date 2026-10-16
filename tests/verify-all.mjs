@@ -332,6 +332,12 @@ assert(stylesCssContent.includes('input::placeholder') && stylesCssContent.inclu
 assert(adminHtmlContent.includes('input::placeholder') && adminHtmlContent.includes('[data-theme="dark"] input::placeholder'), 'High contrast input ::placeholder rules defined for Day & Night in admin.html');
 assert(stylesCssContent.includes('[data-theme="dark"] .btn-checkout-submit'), 'Dark mode high contrast sapphire button styling active for checkout and primary buttons');
 assert(!indexHtmlContent.includes('placeholder="🔍'), 'Search input placeholder is clean with zero duplicate search emoji');
+assert(indexHtmlContent.includes('class="catalog-search-wrap"') && indexHtmlContent.includes('class="catalog-search-icon"'), 'Search bar has dedicated wrap with single crisp SVG icon');
+assert(!indexHtmlContent.includes('<span>🔍</span>'), 'Duplicate search emoji icon span is completely removed');
+assert(indexHtmlContent.includes('class="category-tabs-wrapper"') && indexHtmlContent.includes('id="categoryTabs"'), 'Category filter pills are wrapped in dedicated category-tabs-wrapper container');
+assert(stylesCssContent.includes('overflow-x: auto') && stylesCssContent.includes('justify-content: flex-start !important'), 'Category tabs have horizontal touch-scroll and flex-start alignment for mobile');
+assert(stylesCssContent.includes('.floating-quick-actions') && stylesCssContent.includes('z-index: 99999'), 'Floating quick actions have max z-index and translateZ viewport pinning');
+assert(stylesCssContent.includes('overflow-x: hidden') && stylesCssContent.includes('max-width: 100%'), 'Html and body enforce max-width 100% and overflow-x hidden to prevent horizontal blowout');
 assert(indexHtmlContent.includes('style="color:var(--text-heading);margin-bottom:8px"'), 'Tracking modal title uses dynamic --text-heading for perfect Day/Night legibility');
 assert(indexHtmlContent.includes('style="color:var(--text-heading);margin-bottom:6px"'), 'Success modal title uses dynamic --text-heading for perfect Day/Night legibility');
 

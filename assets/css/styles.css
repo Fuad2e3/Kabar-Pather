@@ -124,6 +124,9 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -131,7 +134,10 @@ body {
   background-color: var(--bg-page);
   color: var(--text-body);
   line-height: 1.65;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
+  position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -678,7 +684,119 @@ select::placeholder {
   font-size: 1.15rem;
   color: var(--text-muted);
   max-width: 650px;
-  margin: 0 auto 52px;
+  margin: 0 auto 36px;
+}
+
+/* --------------------------------------------------------------------------
+   CATALOG LIVE SEARCH & CATEGORY FILTER TABS
+   -------------------------------------------------------------------------- */
+.catalog-filter-section {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto 32px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.catalog-search-wrap {
+  width: 100%;
+  max-width: 480px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.catalog-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+  z-index: 2;
+  transition: var(--transition-fast);
+}
+
+.catalog-search-wrap:focus-within .catalog-search-icon {
+  color: var(--primary);
+}
+
+.catalog-search-input {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px 0 42px !important;
+  border-radius: var(--radius-pill) !important;
+  font-size: 0.95rem !important;
+  background-color: var(--bg-card);
+  border: 1.5px solid var(--lavender-border);
+  color: var(--text-main, var(--text-dark));
+  box-shadow: var(--shadow-xs);
+  transition: var(--transition-fast);
+  outline: none;
+}
+
+.catalog-search-input:focus {
+  border-color: var(--primary);
+  background-color: var(--white);
+  box-shadow: 0 0 0 4px var(--lavender-glow);
+}
+
+.catalog-search-input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.85;
+}
+
+/* Category Filter Tabs Wrapper & Strip */
+.category-tabs-wrapper {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.category-tabs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 2px;
+  max-width: 100%;
+}
+
+.category-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 20px;
+  border-radius: var(--radius-pill);
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1.5px solid var(--lavender-border);
+  background: var(--bg-card);
+  color: var(--text-body);
+  transition: var(--transition-fast);
+  white-space: nowrap;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.category-tab-btn:hover {
+  background: var(--lavender-100);
+  color: var(--primary);
+  border-color: var(--primary-light);
+  transform: translateY(-1px);
+}
+
+.category-tab-btn.active {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  box-shadow: 0 4px 14px rgba(0, 56, 133, 0.28);
 }
 
 .products-grid {
@@ -1338,11 +1456,12 @@ select::placeholder {
   position: fixed;
   bottom: 28px;
   right: 28px;
-  z-index: 999;
+  z-index: 99999;
   display: flex;
   flex-direction: column;
   gap: 14px;
   align-items: center;
+  transform: translateZ(0);
 }
 
 .float-btn {
@@ -1845,13 +1964,19 @@ select::placeholder {
   }
 
   .floating-quick-actions {
-    bottom: 20px;
-    right: 20px;
+    position: fixed !important;
+    bottom: 20px !important;
+    bottom: max(20px, env(safe-area-inset-bottom, 20px)) !important;
+    right: 18px !important;
+    right: max(16px, env(safe-area-inset-right, 16px)) !important;
+    z-index: 99999 !important;
+    transform: translateZ(0) !important;
+    gap: 12px !important;
   }
 
   .float-btn {
-    width: 46px;
-    height: 46px;
+    width: 48px !important;
+    height: 48px !important;
   }
 }
 
@@ -2779,6 +2904,27 @@ select::placeholder {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
 }
 
+/* Catalog Search in Night Mode */
+[data-theme="dark"] .catalog-search-input {
+  background-color: #0b1626;
+  border-color: #1e355b;
+  color: #f8fbff;
+}
+
+[data-theme="dark"] .catalog-search-input:focus {
+  border-color: #38bdf8;
+  background-color: #0f1f36;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
+}
+
+[data-theme="dark"] .catalog-search-icon {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .catalog-search-wrap:focus-within .catalog-search-icon {
+  color: #38bdf8;
+}
+
 /* Category Filter Tabs in Night Mode */
 [data-theme="dark"] .category-tab-btn {
   background: #0b1626;
@@ -3183,28 +3329,69 @@ select::placeholder {
     border-radius: var(--radius-sm) !important;
   }
 
-  /* Category Filter Pills: Touch Smooth Scroll */
+  /* Catalog Filter & Live Search Mobile */
+  .catalog-filter-section {
+    margin: -10px auto 22px auto;
+    width: 100%;
+    max-width: 100%;
+    gap: 12px;
+  }
+
+  .catalog-search-wrap {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 4px;
+  }
+
+  .catalog-search-input {
+    height: 44px;
+    font-size: 16px !important; /* Prevents auto-zoom on mobile focus */
+  }
+
+  /* Category Filter Pills: Edge-to-Edge Touch Smooth Scroll */
+  .category-tabs-wrapper {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    overflow: hidden;
+    position: relative;
+  }
+
   .category-tabs,
   .category-filter-bar {
+    width: 100% !important;
+    max-width: 100% !important;
     display: flex !important;
     flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
     overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding: 8px 4px 12px 4px !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-x !important;
+    scroll-behavior: smooth;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    padding: 6px 16px 12px 16px !important;
     gap: 8px !important;
   }
 
   .category-tabs::-webkit-scrollbar,
   .category-filter-bar::-webkit-scrollbar {
-    display: none;
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
   }
 
   .category-tab-btn {
+    flex: 0 0 auto !important;
     flex-shrink: 0 !important;
     white-space: nowrap !important;
-    padding: 7px 14px !important;
+    padding: 8px 16px !important;
     font-size: 0.88rem !important;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
   }
 
   /* Header & Action Bar on Mobile */

@@ -169,3 +169,21 @@ Every button, icon, heading, and body text element is engineered to guarantee im
 | **Night Footer Phone Link** | `#ffffff` | `#040810` (Footer) | **20.05:1** | Pass (AAA) |
 
 - **Invariance Rule**: `--white` is mathematically invariant (`#ffffff`) in both Light and Dark themes. Surfaces must always use `--bg-card`, `--bg-page`, or `--bg-subtle`.
+
+---
+
+## 8. Mobile Component Engineering Specifications
+
+### 8.1 Floating Quick Actions (`.floating-quick-actions`)
+- **Viewport Anchoring**: Fixed at bottom-right of the physical screen (`position: fixed !important; right: max(16px, env(safe-area-inset-right, 16px)) !important; bottom: max(20px, env(safe-area-inset-bottom, 20px)) !important; z-index: 99999 !important; transform: translateZ(0) !important;`).
+- **Isolation**: High z-index and GPU compositor layering prevent overlap or occlusion by modals, cards, or hero elements.
+- **Blowout Prevention**: `html, body` enforce `width: 100%; max-width: 100%; overflow-x: hidden;` ensuring floating icons never drift off-screen due to wide child elements.
+
+### 8.2 Catalog Live Search Bar (`.catalog-search-wrap`)
+- **Single Crisp Icon**: Inline SVG magnifying glass (`.catalog-search-icon`) with 2.2px stroke width, eliminating dual-icon rendering caused by emoji placeholders.
+- **Font-Size Zoom Protection**: Input font size is fixed at `16px` on mobile (`@media (max-width: 768px)`) to prevent mobile Safari/Chrome from triggering automatic page zoom on focus.
+
+### 8.3 Category Filter Pills (`.category-tabs-wrapper`)
+- **Edge-to-Edge Container**: Stretches full-bleed across mobile screens (`width: 100vw; margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%); overflow: hidden;`).
+- **Touch Inertial Scrolling**: `.category-tabs` uses `display: flex !important; flex-wrap: nowrap !important; overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; touch-action: pan-x !important; justify-content: flex-start !important;` with hidden scrollbars for native app-like swipeability.
+

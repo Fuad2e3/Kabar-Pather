@@ -97,6 +97,13 @@ gantt
 - [x] **Admin Theme Contrast**: Updated tags, preview cards, metrics, and status badges in `admin.html`.
 - [x] **Automated Test Suite**: Added automated WCAG contrast tests in `tests/verify-all.mjs`, expanding to 188 passing tests.
 
+### ✅ Milestone 8: Mobile UX, Floating Action Viewport Pinning & Touch Scrolling
+- [x] **Floating Action Direct Visibility**: Anchored `.floating-quick-actions` (WhatsApp, phone, scroll-top) with `position: fixed !important; right: max(16px, env(safe-area-inset-right, 16px)) !important; bottom: max(20px, env(safe-area-inset-bottom, 20px)) !important; z-index: 99999 !important; transform: translateZ(0) !important;` so icons are immediately visible on phone screens without pinching or dragging.
+- [x] **Zero Viewport Blowout**: Enforced `width: 100%; max-width: 100%; overflow-x: hidden;` on `html` and `body` ensuring document layout strictly matches device width.
+- [x] **Single Crisp SVG Search Icon**: Replaced dual search icons (placeholder emoji + overlay `<span>`) with dedicated `.catalog-search-wrap`, crisp SVG `.catalog-search-icon`, and clean placeholder text.
+- [x] **Touch-Scrollable Category Tabs**: Wrapped pills in `.category-tabs-wrapper` with mobile edge-to-edge negative margins and configured `.category-tabs` with `overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; touch-action: pan-x !important; justify-content: flex-start !important;` for silky-smooth horizontal touch swiping on mobile.
+- [x] **Automated Regression Suite**: Expanded `tests/verify-all.mjs` to 194 passing assertions testing viewport containment, touch scroll, and icon uniqueness.
+
 ---
 
 ## 3. Upcoming Roadmap (Milestones 7 & Beyond)
