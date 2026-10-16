@@ -117,8 +117,8 @@ gantt
 
 ### ✅ Milestone 10: Agency Attribution & Developer Branding Placement
 - [x] **Footer Placement Optimization**: Conducted UX evaluation and positioned agency branding badge at the bottom right of the sub-footer (`.footer-dev-credit` in `.footer-bottom-container`) alongside copyright and 24/7 emergency dispatch notice.
-- [x] **Account Modal & Bar Attribution**: Integrated "Develop by Softece" branding under the account creation button (`#userRegSubmitBtn`) inside `.custom-modal-box` (`#authModal`), under the checkout drawer guest account creation prompt (`#checkoutAuthPrompt`), and in the user profile menu dropdown (`#userMenuDropdown`).
-- [x] **Branding Badge & Interactive Link**: Integrated "Develop by Softece" badge linking to `https://softece.com` (`#developerBrandLink`, `#authDeveloperBrandLink`, `#checkoutAuthDevBrandLink`, target `_blank`, `rel="noopener noreferrer"`) styled with sapphire pill background (`rgba(56, 189, 248, 0.1)`), electric icon `⚡`, hover lift animation, and luminous glow.
+- [x] **Account Modal & Bar Attribution**: Integrated branding under the account creation button (`#userRegSubmitBtn`) inside `.custom-modal-box` (`#authModal`), under the checkout drawer guest account creation prompt (`#checkoutAuthPrompt`), and in the user profile menu dropdown (`#userMenuDropdown`).
+- [x] **Full Unified Capsule Pill**: Enclosed the entire phrase ("Developed by ⚡ Softece") inside a single unified capsule pill link (`.dev-brand-link`, `border-radius: 9999px`) linking to `https://softece.com` (`#developerBrandLink`, `#authDeveloperBrandLink`, `#checkoutAuthDevBrandLink`, target `_blank`, `rel="noopener noreferrer"`) with slate-muted "Developed by", electric icon `⚡`, bold sapphire "Softece", and luminous hover glow.
 - [x] **Responsive Adaptation**: Styled `.footer-bottom-container`, `.auth-modal-dev-credit`, and `.auth-prompt-dev-credit` to automatically center attribution across Day & Night modes without viewport overflow or visual congestion.
 
 ---
