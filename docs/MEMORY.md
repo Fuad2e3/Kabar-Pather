@@ -137,7 +137,17 @@ This document serves as the persistent memory, architectural history, Architectu
   - Ensures all orders are linked to authentic customer accounts for easy order tracking and notifications.
   - Seamless, conversion-friendly auth flow for new buyers.
 
+### ADR-013: Bottom CTA Order Banner Vertical Action Hierarchy (Phone above WhatsApp)
+- **Status**: Implemented & Verified.
+- **Context**: In the bottom CTA order banner (`.order-cta-banner`), horizontal button placement caused labels to feel horizontally constrained, reducing scannability of the 11-digit phone number and Bengali WhatsApp text.
+- **Decision**: Update `.banner-actions` to `flex-direction: column; align-items: stretch; gap: 12px; min-width: 270px;` across all viewports. Ensure `#bannerCallBtn` stacks cleanly directly above `#bannerWhatsappBtn` with full-width pill styling, centered text, crisp SVG icons, and `white-space: nowrap`.
+- **Consequences**:
+  - The phone number (`01844-687759`) is positioned prominently on top, followed immediately by the WhatsApp button.
+  - Generous touch targets and clean text spacing make emergency orders and hotlines immediately readable.
+  - Complete responsiveness across desktop, tablet, and mobile screens.
+
 ---
+
 
 ## 3. Persistent Constants & Keys
 

@@ -192,3 +192,8 @@ Every button, icon, heading, and body text element is engineered to guarantee im
 - **Edge-to-Edge Container**: Stretches full-bleed across mobile screens (`width: 100vw; margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%); overflow: hidden;`).
 - **Touch Inertial Scrolling**: `.category-tabs` uses `display: flex !important; flex-wrap: nowrap !important; overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; touch-action: pan-x !important; justify-content: flex-start !important;` with hidden scrollbars for native app-like swipeability.
 
+### 8.4 Order CTA Banner Action Hierarchy (`.banner-actions`)
+- **Vertical Button Stacking**: To eliminate horizontal cramping and ensure maximum legibility for the 11-digit phone number and Bengali WhatsApp message, `.banner-actions` enforces `flex-direction: column; align-items: stretch; gap: 12px; min-width: 270px;`.
+- **Top Priority Phone Call**: The phone button (`#bannerCallBtn`, `01844-687759`) is positioned directly on top of the WhatsApp button (`#bannerWhatsappBtn`), providing instantaneous one-tap emergency calling with prominent, clean typography and full touch-target width across desktop and mobile.
+
+

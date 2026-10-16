@@ -1093,26 +1093,39 @@ select::placeholder {
 
 .banner-actions {
   display: flex;
-  align-items: center;
-  gap: 14px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
   flex-shrink: 0;
+  min-width: 270px;
+}
+
+.banner-actions .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 13px 24px;
+  font-size: 1.02rem;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  box-sizing: border-box;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .btn-banner-call {
   background-color: var(--white);
   color: var(--primary);
-  padding: 12px 24px;
-  font-size: 1rem;
-  font-family: var(--font-latin);
-  font-weight: 700;
-  border-radius: var(--radius-pill);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .btn-banner-call svg {
-  width: 18px;
-  height: 18px;
+  width: 19px;
+  height: 19px;
   color: var(--primary);
+  flex-shrink: 0;
 }
 
 .btn-banner-call:hover {
@@ -1124,16 +1137,13 @@ select::placeholder {
 .btn-banner-whatsapp {
   background-color: #15803d;
   color: #ffffff !important;
-  padding: 12px 24px;
-  font-size: 1rem;
-  font-weight: 700;
-  border-radius: var(--radius-pill);
   box-shadow: 0 4px 14px rgba(21, 128, 61, 0.35);
 }
 
 .btn-banner-whatsapp svg {
-  width: 20px;
-  height: 20px;
+  width: 21px;
+  height: 21px;
+  flex-shrink: 0;
 }
 
 .btn-banner-whatsapp:hover {

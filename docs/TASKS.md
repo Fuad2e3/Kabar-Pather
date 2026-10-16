@@ -111,8 +111,10 @@ gantt
 - [x] **Direct Auth Modals**: Wired "✨ নতুন অ্যাকাউন্ট তৈরি করুন" to `registerTab` and "লগইন করুন" to `loginTab` for friction-free onboarding.
 - [x] **Streamlined Checkout Form**: Customers only need to select delivery area and enter the delivery address (`#checkoutAddress`), boosting conversion speed during emergency moments.
 - [x] **Session State Synchronization**: Integrated real-time synchronization across login, register, logout, and cart drawer opening events.
+- [x] **CTA Banner Vertical Action Hierarchy (`.order-cta-banner`)**: Stacked phone call button (`01844-687759`) directly above the WhatsApp button in `.banner-actions` across desktop and mobile, ensuring maximum legibility, zero text cramping, and generous touch targets.
 
 ---
+
 
 ## 3. Upcoming Roadmap (Milestones 7 & Beyond)
 
