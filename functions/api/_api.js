@@ -696,21 +696,27 @@ async function trackOrders(phone, ref, env) {
     assertDb(env);
     let results = [];
     const cleanRef = (ref || '').trim();
-    const cleanPhone = (phone || '').replace(/[\s-]/g, '').slice(-11);
+    const cleanPhone = (phone || '').trim();
+    const rawQuery = cleanRef || cleanPhone;
+    const isEmail = rawQuery.includes('@');
 
-    if (cleanRef) {
+    if (cleanRef && !isEmail) {
       const res = await env.DB.prepare('SELECT * FROM orders WHERE upper(ref) = upper(?)').bind(cleanRef).all();
       results = res.results || [];
     }
 
-    if (results.length === 0 && (phone || cleanRef)) {
-      const searchVal = cleanPhone || cleanRef;
+    if (results.length === 0 && rawQuery) {
+      const phoneDigits = cleanPhone.replace(/[\s-]/g, '').slice(-11);
+      const emailQuery = isEmail ? rawQuery.toLowerCase() : (cleanPhone.includes('@') ? cleanPhone.toLowerCase() : '');
+      const searchPattern = phoneDigits ? `%${phoneDigits}%` : '%_____%';
+
       const res = await env.DB.prepare(`
         SELECT * FROM orders 
         WHERE (customer_phone IS NOT NULL AND customer_phone LIKE ?)
-           OR (customer_email IS NOT NULL AND lower(customer_email) = lower(?))
+           OR (customer_email IS NOT NULL AND lower(customer_email) = ?)
+           OR (upper(ref) = upper(?))
         ORDER BY placed_at DESC
-      `).bind(`%${searchVal}%`, cleanRef).all();
+      `).bind(searchPattern, emailQuery, rawQuery).all();
       results = res.results || [];
     }
 

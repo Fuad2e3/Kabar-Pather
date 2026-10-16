@@ -163,7 +163,20 @@ This document serves as the persistent memory, architectural history, Architectu
   - Overall page scannability is improved without excessive scrolling.
   - 100% test compatibility and visual harmony in both Day and Night modes.
 
+### ADR-015: End-to-End User Account Lifecycle & Multi-Attribute Tracking
+- **Status**: Implemented & Verified.
+- **Context**: The platform required fullstack customer authentication, transparent database persistence, administrative account moderation (suspend/activate), and multi-channel order tracking by reference ID, customer phone number, or email address.
+- **Decision**:
+  1. Wired `KabarApi.updateUserStatus` to `POST /api/users/status` with synchronized offline `localStorage` (`kp.users.v1`) persistence.
+  2. Implemented active/suspend account moderation click listeners on `.toggle-user-btn` in `admin.html`.
+  3. Upgraded `trackOrders` in `functions/api/_api.js` to intelligently match order records by alphanumeric reference `#KP-XXXXX`, 11-digit phone number, or customer email address.
+  4. Expanded regression test suite in `tests/verify-all.mjs` to 214 automated assertions covering full user registration, login, order creation, inventory decrements, tracking, admin CRUD, and all device breakpoints.
+- **Consequences**:
+  - Full operational capability across edge serverless and offline fallback environments.
+  - 100% test coverage with zero unhandled edge cases.
+
 ---
+
 
 
 

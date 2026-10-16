@@ -685,7 +685,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const myOrdersBtn = document.getElementById('userMyOrdersBtn');
       if (myOrdersBtn) {
         myOrdersBtn.addEventListener('click', () => {
-          openTrackModal(user.phone || '');
+          openTrackModal(user.phone || user.email || '');
         });
       }
 
@@ -739,7 +739,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navTrackOrderBtn.addEventListener('click', (e) => {
       e.preventDefault();
       const user = window.KabarApi ? window.KabarApi.getCurrentUser() : null;
-      openTrackModal(user ? (user.phone || '') : '');
+      openTrackModal(user ? (user.phone || user.email || '') : '');
     });
   }
 

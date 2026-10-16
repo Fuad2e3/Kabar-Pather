@@ -233,6 +233,7 @@ const orderReq = new Request('http://localhost/api/orders', {
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({
     customer_name: 'তৌফিক আহমেদ',
+    customer_email: 'towfiq@example.com',
     customer_phone: '01844687759',
     address: 'কামরাঙ্গীরচর, ঢাকা',
     delivery_zone: 'inside_dhaka',
@@ -259,6 +260,18 @@ const trackRes = await handleApiRequest(trackReq, mockEnv);
 const trackData = await trackRes.json();
 assert(trackData.ok === true && Array.isArray(trackData.orders) && trackData.orders.length > 0 && trackData.orders[0].customerName === 'তৌফিক আহমেদ', 'GET /api/orders/track finds order by reference');
 
+// 4.6.1 Track Order by Phone
+const trackPhoneReq = new Request('http://localhost/api/orders/track?phone=01844687759', { method: 'GET' });
+const trackPhoneRes = await handleApiRequest(trackPhoneReq, mockEnv);
+const trackPhoneData = await trackPhoneRes.json();
+assert(trackPhoneData.ok === true && trackPhoneData.orders.length > 0, 'GET /api/orders/track finds order by customer phone');
+
+// 4.6.2 Track Order by Email
+const trackEmailReq = new Request('http://localhost/api/orders/track?ref=towfiq@example.com', { method: 'GET' });
+const trackEmailRes = await handleApiRequest(trackEmailReq, mockEnv);
+const trackEmailData = await trackEmailRes.json();
+assert(trackEmailData.ok === true && trackEmailData.orders.length > 0, 'GET /api/orders/track finds order by customer email');
+
 // 4.7 Update Order Status
 const statusReq = new Request('http://localhost/api/orders/status', {
   method: 'POST',
@@ -268,6 +281,22 @@ const statusReq = new Request('http://localhost/api/orders/status', {
 const statusRes = await handleApiRequest(statusReq, mockEnv);
 const statusData = await statusRes.json();
 assert(statusData.ok === true && statusData.status === 'Confirmed', 'POST /api/orders/status marks order as Confirmed');
+
+// 4.7.1 Update Order Status to Delivered
+const statusDeliveredReq = new Request('http://localhost/api/orders/status', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ ref: orderData.ref, status: 'Delivered' })
+});
+const statusDeliveredRes = await handleApiRequest(statusDeliveredReq, mockEnv);
+const statusDeliveredData = await statusDeliveredRes.json();
+assert(statusDeliveredData.ok === true && statusDeliveredData.status === 'Delivered', 'POST /api/orders/status marks order as Delivered');
+
+// 4.7.2 Admin Fetch All Orders
+const allOrdersReq = new Request('http://localhost/api/orders', { method: 'GET' });
+const allOrdersRes = await handleApiRequest(allOrdersReq, mockEnv);
+const allOrdersData = await allOrdersRes.json();
+assert(allOrdersData.ok === true && Array.isArray(allOrdersData.orders) && allOrdersData.orders.length > 0, 'GET /api/orders returns all orders for admin dashboard');
 
 // 4.8 WebP Image Upload to R2
 const sampleWebpBase64 = 'data:image/webp;base64,UklGRkAAAABXRUJQVlA4WAoAAAAQAAAAAQAAAAEUAAUAAwAAAP//';
@@ -282,6 +311,90 @@ const uploadReq = new Request('http://localhost/api/upload', {
 const uploadRes = await handleApiRequest(uploadReq, mockEnv);
 const uploadData = await uploadRes.json();
 assert(uploadData.ok === true && uploadData.url.endsWith('.webp'), `POST /api/upload stores WebP photo in R2: ${uploadData.url}`);
+
+// 4.9 Duplicate User Registration Rejection (409)
+const dupRegReq = new Request('http://localhost/api/users/register', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    name: 'তৌফিক আহমেদ',
+    email: 'towfiq@example.com',
+    phone: '01844687759',
+    password: 'password123'
+  })
+});
+const dupRegRes = await handleApiRequest(dupRegReq, mockEnv);
+assert(dupRegRes.status === 409, 'POST /api/users/register rejects duplicate email with 409 Conflict');
+
+// 4.10 Wrong Password Rejection (401)
+const badLoginReq = new Request('http://localhost/api/users/login', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ email: 'towfiq@example.com', password: 'wrongpassword' })
+});
+const badLoginRes = await handleApiRequest(badLoginReq, mockEnv);
+assert(badLoginRes.status === 401, 'POST /api/users/login rejects incorrect password with 401 Unauthorized');
+
+// 4.11 Admin Fetch Users List
+const usersListReq = new Request('http://localhost/api/users', { method: 'GET' });
+const usersListRes = await handleApiRequest(usersListReq, mockEnv);
+const usersListData = await usersListRes.json();
+assert(usersListData.ok === true && Array.isArray(usersListData.users) && usersListData.users.length >= 2, `GET /api/users returns registered users (Count: ${usersListData.users.length})`);
+
+// 4.12 Admin Toggle User Status (Suspend Customer)
+const suspendReq = new Request('http://localhost/api/users/status', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ email: 'towfiq@example.com', status: 'Suspended' })
+});
+const suspendRes = await handleApiRequest(suspendReq, mockEnv);
+const suspendData = await suspendRes.json();
+assert(suspendData.ok === true && suspendData.status === 'Suspended', 'POST /api/users/status suspends customer account');
+
+// 4.13 Suspended Customer Login Blocked (403)
+const suspendedLoginReq = new Request('http://localhost/api/users/login', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ email: 'towfiq@example.com', password: 'password123' })
+});
+const suspendedLoginRes = await handleApiRequest(suspendedLoginReq, mockEnv);
+assert(suspendedLoginRes.status === 403, 'POST /api/users/login blocks suspended customer login with 403 Forbidden');
+
+// 4.14 Restore Customer Account (Active)
+const activateReq = new Request('http://localhost/api/users/status', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ email: 'towfiq@example.com', status: 'Active' })
+});
+const activateRes = await handleApiRequest(activateReq, mockEnv);
+const activateData = await activateRes.json();
+assert(activateData.ok === true && activateData.status === 'Active', 'POST /api/users/status restores customer account to Active');
+
+// 4.15 Admin Add New Product
+const newProdReq = new Request('http://localhost/api/products', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    id: 'kp-prod-test-01',
+    title: 'টেস্ট জানাজার চাদর',
+    category: 'janaza',
+    price: 950,
+    oldPrice: 1100,
+    unit: 'পিস',
+    stock: 15,
+    status: 'Active'
+  })
+});
+const newProdRes = await handleApiRequest(newProdReq, mockEnv);
+const newProdData = await newProdRes.json();
+assert(newProdData.ok === true && newProdData.product.id === 'kp-prod-test-01', 'POST /api/products creates new product in database');
+
+// 4.16 Admin Delete Product
+const delProdReq = new Request('http://localhost/api/products/kp-prod-test-01', { method: 'DELETE' });
+const delProdRes = await handleApiRequest(delProdReq, mockEnv);
+const delProdData = await delProdRes.json();
+assert(delProdData.ok === true && delProdData.id === 'kp-prod-test-01', 'DELETE /api/products/:id deletes product from database');
+
 
 /* ──────────────────────────────────────────────────────────────────────────
    TEST 5: Cart Delivery Fee & Math Logic

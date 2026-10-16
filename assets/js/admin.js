@@ -622,12 +622,28 @@
             </span>
           </td>
           <td>
-            <button type="button" class="btn btn-outline btn-sm toggle-user-btn" data-id="${u.id}" data-status="${u.status}">
+            <button type="button" class="btn btn-outline btn-sm toggle-user-btn" data-id="${u.id}" data-status="${u.status || 'Active'}">
               ${isActive ? 'স্থগিত করুন' : 'সক্রিয় করুন'}
             </button>
           </td>
         </tr>`;
     }).join('');
+
+    // Attach user status toggle event
+    usersTableBody.querySelectorAll('.toggle-user-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const id = btn.getAttribute('data-id');
+        const currentStatus = btn.getAttribute('data-status') || 'Active';
+        const newStatus = currentStatus === 'Active' ? 'Suspended' : 'Active';
+        const actionLabel = newStatus === 'Active' ? 'সক্রিয়' : 'স্থগিত';
+
+        if (confirm(`আপনি কি এই গ্রাহক অ্যাকাউন্টটি ${actionLabel} করতে চান?`)) {
+          await window.KabarApi.updateUserStatus(id, newStatus);
+          showToast(`গ্রাহক অ্যাকাউন্টটি ${actionLabel} করা হয়েছে`);
+          loadUsers();
+        }
+      });
+    });
   }
 
   /* ─── 8. Update Metrics & Badge Counters ─── */

@@ -358,6 +358,16 @@
 
       if (res && res.ok && res.user) {
         localStorage.setItem(STORAGE_KEYS.AUTH_USER, JSON.stringify(res.user));
+        try {
+          let users = [];
+          const local = localStorage.getItem(STORAGE_KEYS.LOCAL_USERS);
+          if (local) users = JSON.parse(local);
+          const idx = users.findIndex(u => (u.email || '').toLowerCase() === email.toLowerCase());
+          const userWithCreds = { ...res.user, password };
+          if (idx !== -1) users[idx] = userWithCreds;
+          else users.unshift(userWithCreds);
+          localStorage.setItem(STORAGE_KEYS.LOCAL_USERS, JSON.stringify(users));
+        } catch (_) {}
         return res;
       }
 
@@ -369,9 +379,20 @@
           email,
           phone,
           status: 'Active',
+          role: 'Customer',
           registeredAt: new Date().toISOString()
         };
         localStorage.setItem(STORAGE_KEYS.AUTH_USER, JSON.stringify(user));
+        try {
+          let users = [];
+          const local = localStorage.getItem(STORAGE_KEYS.LOCAL_USERS);
+          if (local) users = JSON.parse(local);
+          const idx = users.findIndex(u => (u.email || '').toLowerCase() === email.toLowerCase());
+          const userWithCreds = { ...user, password };
+          if (idx !== -1) users[idx] = userWithCreds;
+          else users.unshift(userWithCreds);
+          localStorage.setItem(STORAGE_KEYS.LOCAL_USERS, JSON.stringify(users));
+        } catch (_) {}
         return { ok: true, user };
       }
       return res;
@@ -402,7 +423,25 @@
         return { ok: true, user: adminUser };
       }
 
-      return res;
+      // Local fallback for registered customers
+      try {
+        const local = localStorage.getItem(STORAGE_KEYS.LOCAL_USERS);
+        if (local) {
+          const users = JSON.parse(local);
+          const found = users.find(u => (u.email || '').toLowerCase() === email.toLowerCase() && u.password === password);
+          if (found) {
+            if (found.status && (found.status.toLowerCase() === 'inactive' || found.status.toLowerCase() === 'suspended')) {
+              return { ok: false, error: 'আপনার অ্যাকাউন্টটি স্থগিত রয়েছে।' };
+            }
+            const safeUser = { ...found };
+            delete safeUser.password;
+            localStorage.setItem(STORAGE_KEYS.AUTH_USER, JSON.stringify(safeUser));
+            return { ok: true, user: safeUser };
+          }
+        }
+      } catch (_) {}
+
+      return res || { ok: false, error: 'ভুল ইমেইল অথবা পাসওয়ার্ড।' };
     }
 
     static logoutUser() {
@@ -414,9 +453,46 @@
     static async getUsers() {
       const res = await this.request('/users');
       if (res && res.ok && Array.isArray(res.users)) {
+        try {
+          localStorage.setItem(STORAGE_KEYS.LOCAL_USERS, JSON.stringify(res.users));
+        } catch (_) {}
         return res.users;
       }
+
+      try {
+        const local = localStorage.getItem(STORAGE_KEYS.LOCAL_USERS);
+        if (local) {
+          const parsed = JSON.parse(local);
+          if (Array.isArray(parsed)) {
+            return parsed.map(u => {
+              const safe = { ...u };
+              delete safe.password;
+              return safe;
+            });
+          }
+        }
+      } catch (_) {}
       return [];
+    }
+
+    static async updateUserStatus(idOrEmail, status) {
+      const res = await this.request('/users/status', {
+        method: 'POST',
+        body: JSON.stringify({ id: idOrEmail, email: idOrEmail, status })
+      });
+
+      try {
+        let users = [];
+        const local = localStorage.getItem(STORAGE_KEYS.LOCAL_USERS);
+        if (local) users = JSON.parse(local);
+        const found = users.find(u => u.id === idOrEmail || (u.email || '').toLowerCase() === String(idOrEmail).toLowerCase());
+        if (found) {
+          found.status = status;
+          localStorage.setItem(STORAGE_KEYS.LOCAL_USERS, JSON.stringify(users));
+        }
+      } catch (_) {}
+
+      return res && res.ok ? res : { ok: true, status };
     }
 
     /* ─── Cart Management ─── */
