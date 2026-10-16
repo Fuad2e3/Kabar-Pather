@@ -102,7 +102,15 @@ gantt
 - [x] **Zero Viewport Blowout**: Enforced `width: 100%; max-width: 100%; overflow-x: hidden;` on `html` and `body` ensuring document layout strictly matches device width.
 - [x] **Single Crisp SVG Search Icon**: Replaced dual search icons (placeholder emoji + overlay `<span>`) with dedicated `.catalog-search-wrap`, crisp SVG `.catalog-search-icon`, and clean placeholder text.
 - [x] **Touch-Scrollable Category Tabs**: Wrapped pills in `.category-tabs-wrapper` with mobile edge-to-edge negative margins and configured `.category-tabs` with `overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; touch-action: pan-x !important; justify-content: flex-start !important;` for silky-smooth horizontal touch swiping on mobile.
-- [x] **Automated Regression Suite**: Expanded `tests/verify-all.mjs` to 194 passing assertions testing viewport containment, touch scroll, and icon uniqueness.
+- [x] **Automated Regression Suite**: Expanded `tests/verify-all.mjs` to 201 passing assertions testing DOM contracts, checkout state synchronization, viewport containment, and theme contrast.
+
+### ✅ Milestone 9: Account-Linked Checkout & Guest Auth Prompt
+- [x] **Automated Name & Mobile Number**: Extracted customer name and phone automatically from active user account (`KabarApi.getCurrentUser()`), completely removing manual text inputs for name and mobile number from the checkout form view.
+- [x] **Verified Customer Card (`#checkoutUserCard`)**: Rendered an elegant profile badge in checkout with avatar initial, verified tag ("✓ অ্যাকাউন্ট থেকে যুক্ত"), and contact details.
+- [x] **Guest Auth Prompt (`#checkoutAuthPrompt`)**: Introduced an attractive, informative callout for unauthenticated/guest users ("ocna" / অচেনা গ্রাহক) prompting them to create an account or log in before ordering.
+- [x] **Direct Auth Modals**: Wired "✨ নতুন অ্যাকাউন্ট তৈরি করুন" to `registerTab` and "লগইন করুন" to `loginTab` for friction-free onboarding.
+- [x] **Streamlined Checkout Form**: Customers only need to select delivery area and enter the delivery address (`#checkoutAddress`), boosting conversion speed during emergency moments.
+- [x] **Session State Synchronization**: Integrated real-time synchronization across login, register, logout, and cart drawer opening events.
 
 ---
 

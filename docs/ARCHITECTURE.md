@@ -87,14 +87,17 @@ sequenceDiagram
 ```
 
 ### 3.3 Checkout & Stock Decrement Transaction Flow
-1. **Order Submission**: Customer places an order on `index.html` checkout modal via `KabarApi.placeOrder()`.
-2. **Edge Batch Transaction**: The Edge Function invokes an atomic batch transaction on `env.DB`:
+1. **Account Credentials & Auth Interception**:
+   - For authenticated users, `script.js` retrieves the customer's verified Name and Phone Number directly from `KabarApi.getCurrentUser()`, renders `#checkoutUserCard`, and only requires delivery area and address.
+   - For unauthenticated visitors ("ocna" / অচেনা গ্রাহক), the checkout form is replaced by `#checkoutAuthPrompt`, requiring the user to create an account or log in.
+2. **Order Submission**: Customer places an order on `index.html` checkout drawer via `KabarApi.placeOrder()`.
+3. **Edge Batch Transaction**: The Edge Function invokes an atomic batch transaction on `env.DB`:
    - Inserts order record into `orders` table.
    - For every line item in the order, executes:
      ```sql
      UPDATE products SET stock = MAX(0, stock - ?) WHERE id = ?;
      ```
-3. **Immediate Confirmation**: Customer receives the confirmed order reference (`KP-XXXXXX`), a direct WhatsApp confirmation link, and catalog stock is decremented immediately across the store.
+4. **Immediate Confirmation**: Customer receives the confirmed order reference (`KP-XXXXXX`), a direct WhatsApp confirmation link, and catalog stock is decremented immediately across the store.
 
 ---
 

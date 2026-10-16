@@ -123,7 +123,19 @@ This document serves as the persistent memory, architectural history, Architectu
 - **Consequences**:
   - Floating WhatsApp, phone call, and top buttons are directly and permanently visible right on mobile viewports without pinching or zooming.
   - Search bar displays exactly one crisp SVG icon with high contrast and zero emoji duplication.
-  - Product category pills glide smoothly horizontally with native touch gesture scrolling without document blowout.
+### ADR-011: Account-Linked Checkout & Guest Auth Prompt Architecture
+- **Status**: Implemented & Verified.
+- **Context**: The user specified that during checkout, customer Name and Mobile Number must automatically be derived from their registered account (eliminating manual input fields for name and phone in checkout), and unauthenticated / unknown guests ("ocna" / অচেনা গ্রাহক) must be prompted to create an account or log in before ordering.
+- **Decision**:
+  1. Replace manual text inputs (`checkoutName`, `checkoutPhone`) in the cart drawer with a prominent, verified customer account card (`#checkoutUserCard`) that displays the customer's Name, Mobile Number, and an "✓ অ্যাকাউন্ট থেকে যুক্ত" badge.
+  2. Maintain `#checkoutName` and `#checkoutPhone` as hidden form inputs to preserve form contracts, DOM ID synchronization, and backend payload structure without visual clutter.
+  3. For unauthenticated guests, replace the checkout form with a dedicated, high-contrast callout card (`#checkoutAuthPrompt`) containing "✨ নতুন অ্যাকাউন্ট তৈরি করুন" (opens registration tab) and "লগইন করুন" (opens login tab).
+  4. Intercept form submission if no active session is found, alerting the user and opening the registration dialog.
+  5. Upon registration or login, immediately close the auth modal, update navigation, display a success toast, auto-populate the customer card with verified credentials, and expose the delivery address field.
+- **Consequences**:
+  - Eliminates duplicate typing of name and phone for customers.
+  - Ensures all orders are linked to authentic customer accounts for easy order tracking and notifications.
+  - Seamless, conversion-friendly auth flow for new buyers.
 
 ---
 

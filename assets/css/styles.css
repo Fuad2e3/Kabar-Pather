@@ -2471,6 +2471,173 @@ select::placeholder {
   background: var(--primary-hover);
 }
 
+/* ─── Cart Drawer Checkout Auth & User Profile ─── */
+.checkout-auth-prompt {
+  margin: 12px 0;
+  padding: 14px;
+  background: linear-gradient(135deg, #eff6ff 0%, #e0f2fe 100%);
+  border: 1.5px dashed var(--primary);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px rgba(0, 56, 133, 0.06);
+}
+
+.auth-prompt-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.auth-prompt-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 56, 133, 0.25);
+}
+
+.auth-prompt-content {
+  flex: 1;
+}
+
+.auth-prompt-title {
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin: 0 0 4px 0;
+}
+
+.auth-prompt-desc {
+  font-size: 0.82rem;
+  color: #475569;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.auth-prompt-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.btn-auth-prompt-reg {
+  flex: 1.2;
+  background: linear-gradient(135deg, #003885 0%, #1d64c9 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 9px 12px;
+  font-family: inherit;
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  box-shadow: 0 3px 10px rgba(0, 56, 133, 0.25);
+  transition: var(--transition-fast);
+}
+
+.btn-auth-prompt-reg:hover {
+  background: linear-gradient(135deg, #004bb3 0%, #2563eb 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(0, 56, 133, 0.35);
+}
+
+.btn-auth-prompt-login {
+  flex: 0.8;
+  background: #ffffff;
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+  border-radius: var(--radius-sm);
+  padding: 9px 12px;
+  font-family: inherit;
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.btn-auth-prompt-login:hover {
+  background: var(--lavender-100);
+  transform: translateY(-1px);
+}
+
+/* Logged-in Customer Badge in Checkout */
+.checkout-user-card {
+  margin: 12px 0 10px 0;
+  padding: 10px 12px;
+  background: #ffffff;
+  border: 1.5px solid var(--lavender-border);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 2px 8px rgba(0, 56, 133, 0.05);
+}
+
+.checkout-user-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #003885 0%, #1d64c9 100%);
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 56, 133, 0.2);
+}
+
+.checkout-user-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.checkout-user-name-line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.checkout-user-name-line strong {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+}
+
+.checkout-badge-verified {
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+  padding: 1px 6px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+}
+
+.checkout-user-phone-line {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
 /* Modal Dialogs (Auth, Order Success, Tracking) */
 .custom-modal-backdrop {
   position: fixed;
@@ -3145,6 +3312,77 @@ select::placeholder {
 [data-theme="dark"] .cart-cost-row.total {
   color: #f0f7ff;
   border-top-color: #1e355b;
+}
+
+/* Night Mode for Cart Checkout Auth & User Profile */
+[data-theme="dark"] .checkout-auth-prompt {
+  background: linear-gradient(135deg, #0d1b2e 0%, #091322 100%);
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="dark"] .auth-prompt-icon-wrap {
+  background: #003885;
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+[data-theme="dark"] .auth-prompt-title {
+  color: #f0f7ff;
+}
+
+[data-theme="dark"] .auth-prompt-desc {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .btn-auth-prompt-reg {
+  background: linear-gradient(135deg, #003885 0%, #1d64c9 100%);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 56, 133, 0.45);
+}
+
+[data-theme="dark"] .btn-auth-prompt-reg:hover {
+  background: linear-gradient(135deg, #004bb3 0%, #2563eb 100%);
+  border-color: #38bdf8;
+}
+
+[data-theme="dark"] .btn-auth-prompt-login {
+  background: #0f1f36;
+  border-color: #1e355b;
+  color: #38bdf8;
+}
+
+[data-theme="dark"] .btn-auth-prompt-login:hover {
+  background: #1a345c;
+  border-color: #38bdf8;
+  color: #ffffff;
+}
+
+[data-theme="dark"] .checkout-user-card {
+  background: #0b1626;
+  border-color: #1e355b;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="dark"] .checkout-user-avatar {
+  background: linear-gradient(135deg, #003885 0%, #1d64c9 100%);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #ffffff;
+}
+
+[data-theme="dark"] .checkout-user-name-line strong {
+  color: #f0f7ff;
+}
+
+[data-theme="dark"] .checkout-badge-verified {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.35);
+  color: #34d399;
+}
+
+[data-theme="dark"] .checkout-user-phone-line {
+  color: #94a3b8;
 }
 
 /* Dialogs & Forms in Night Mode */

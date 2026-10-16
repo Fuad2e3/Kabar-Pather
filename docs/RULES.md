@@ -148,4 +148,17 @@ Ensure all automated verification checks (165+ tests) return clean exit code 0.
 4. **Clean Icon & Input Semantics**:
    - Use crisp inline SVGs (`.catalog-search-icon`) rather than emoji characters in placeholders or span tags to eliminate visual duplication across platforms.
 
+---
+
+## 11. Checkout & Customer Auth Invariant Rules
+
+1. **Automatic Account Credential Binding**:
+   - In checkout, customer Name and Phone Number must always be automatically derived from the authenticated user account (`KabarApi.getCurrentUser()`).
+   - Manual text input fields for Name and Phone in the checkout form view are prohibited; customer details must be presented via `#checkoutUserCard`.
+2. **Guest / Unauthenticated Interception**:
+   - Unauthenticated visitors ("ocna" / অচেনা গ্রাহক) must not be permitted to place anonymous guest orders.
+   - The checkout section must present `#checkoutAuthPrompt` guiding users to create an account or log in before ordering.
+3. **Form ID Contract Invariance**:
+   - `#checkoutName` and `#checkoutPhone` must be maintained as hidden inputs to ensure script and backend interoperability without visual clutter.
+
 

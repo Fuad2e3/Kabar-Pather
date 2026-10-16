@@ -113,10 +113,15 @@ The typography pairs **Hind Siliguri** (for natural Bengali scripts) with **Inte
 ### 4.2 Slide-In Cart Drawer (`#cartDrawer`)
 - Slide-in glassmorphic drawer anchored to the right viewport.
 - Itemized list with thumbnail, item title, quantity stepper (`+` / `-`), and line item removal button (`✕`).
+- **Account-Linked Customer Profile (`#checkoutUserCard`)**:
+  - Displays avatar with user initial, customer full name, verified badge ("✓ অ্যাকাউন্ট থেকে যুক্ত"), and mobile number automatically taken from the account.
+  - Manual text inputs for name and mobile number are eliminated from view.
+- **Guest Auth Interception Prompt (`#checkoutAuthPrompt`)**:
+  - For unauthenticated users, displays a prominent callout with "✨ নতুন অ্যাকাউন্ট তৈরি করুন" and "লগইন করুন" buttons.
 - **Dynamic Delivery Zone Calculation**:
-  - Radio toggle between Dhaka (`৳৮০`) and Outside Dhaka (`৳১৫০`).
+  - Select dropdown between Dhaka City (`৳৮০`) and Outside Dhaka (`৳১৫০`).
   - Subtotal + Delivery Fee = Grand Total recalculation with 0ms delay.
-- Direct checkout button transitioning to the checkout modal.
+- Delivery address textarea (`#checkoutAddress`) and Cash on Delivery guarantee badge.
 
 ### 4.3 Admin Sell Post Live Preview (`#cardPreview`)
 - Real-time mirrored rendering of the exact storefront product card inside `admin.html`.

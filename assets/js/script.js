@@ -262,6 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
       cartDrawer.classList.add('active');
       document.body.style.overflow = 'hidden';
       updateCartUi();
+      prefillCheckoutUser();
     }
   }
 
@@ -366,16 +367,57 @@ document.addEventListener('DOMContentLoaded', () => {
     checkoutArea.addEventListener('change', updateCartUi);
   }
 
-  // Pre-fill user info if logged in
+  // Sync checkout user auth state (Auto account name & phone, or ask to create account)
   function prefillCheckoutUser() {
     if (!window.KabarApi) return;
     const user = window.KabarApi.getCurrentUser();
+    const authPrompt = document.getElementById('checkoutAuthPrompt');
+    const userCard = document.getElementById('checkoutUserCard');
+    const nameInput = document.getElementById('checkoutName');
+    const phoneInput = document.getElementById('checkoutPhone');
+    const userName = document.getElementById('checkoutUserName');
+    const userPhone = document.getElementById('checkoutUserPhone');
+    const userAvatar = document.getElementById('checkoutUserAvatar');
+    const checkoutForm = document.getElementById('drawerCheckoutForm');
+
     if (user) {
-      const nameInput = document.getElementById('checkoutName');
-      const phoneInput = document.getElementById('checkoutPhone');
-      if (nameInput && !nameInput.value) nameInput.value = user.name || '';
-      if (phoneInput && !phoneInput.value) phoneInput.value = user.phone || '';
+      if (authPrompt) authPrompt.style.display = 'none';
+      if (userCard) userCard.style.display = 'flex';
+      if (checkoutForm) checkoutForm.style.display = 'block';
+
+      const displayName = user.name || 'সম্মানিত গ্রাহক';
+      const displayPhone = user.phone || user.email || '';
+      const initial = (displayName.trim().charAt(0) || 'ক').toUpperCase();
+
+      if (userName) userName.textContent = displayName;
+      if (userPhone) userPhone.textContent = displayPhone ? `📞 ${displayPhone}` : '';
+      if (userAvatar) userAvatar.textContent = initial;
+
+      if (nameInput) nameInput.value = displayName;
+      if (phoneInput) phoneInput.value = displayPhone;
+    } else {
+      if (authPrompt) authPrompt.style.display = 'block';
+      if (userCard) userCard.style.display = 'none';
+      if (checkoutForm) checkoutForm.style.display = 'none';
+
+      if (nameInput) nameInput.value = '';
+      if (phoneInput) phoneInput.value = '';
     }
+  }
+
+  const checkoutRegisterBtn = document.getElementById('checkoutRegisterBtn');
+  const checkoutLoginBtn = document.getElementById('checkoutLoginBtn');
+
+  if (checkoutRegisterBtn) {
+    checkoutRegisterBtn.addEventListener('click', () => {
+      openAuthModal('registerTab');
+    });
+  }
+
+  if (checkoutLoginBtn) {
+    checkoutLoginBtn.addEventListener('click', () => {
+      openAuthModal('loginTab');
+    });
   }
 
   // Order Submission
@@ -389,16 +431,29 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const name = document.getElementById('checkoutName').value.trim();
-      const phone = document.getElementById('checkoutPhone').value.trim();
+      const user = window.KabarApi ? window.KabarApi.getCurrentUser() : null;
+      if (!user) {
+        openAuthModal('registerTab');
+        showToast('অর্ডার সম্পন্ন করতে অনুগ্রহ করে নতুন অ্যাকাউন্ট তৈরি করুন অথবা লগইন করুন');
+        return;
+      }
+
+      const name = (user.name || (document.getElementById('checkoutName') ? document.getElementById('checkoutName').value.trim() : '')).trim();
+      const phone = (user.phone || (document.getElementById('checkoutPhone') ? document.getElementById('checkoutPhone').value.trim() : '')).trim();
+      const email = user.email || '';
       const address = document.getElementById('checkoutAddress').value.trim();
       const area = checkoutArea.value;
       const deliveryFee = getDeliveryFee();
       const subtotal = summary.subtotal;
       const total = subtotal + deliveryFee;
 
-      if (!name || !phone || !address) {
-        alert('অনুগ্রহ করে নাম, ফোন নম্বর এবং সম্পূর্ণ ঠিকানা পূরণ করুন।');
+      if (!address) {
+        alert('অনুগ্রহ করে ডেলিভারির সম্পূর্ণ ঠিকানা লিখুন।');
+        return;
+      }
+
+      if (!name || !phone) {
+        alert('অ্যাকাউন্টে নাম অথবা ফোন নম্বর পাওয়া যায়নি। অনুগ্রহ করে প্রোফাইল হালনাগাদ করুন।');
         return;
       }
 
@@ -408,6 +463,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const orderPayload = {
         name,
         phone,
+        email,
         address,
         area,
         deliveryFee,
@@ -628,6 +684,7 @@ document.addEventListener('DOMContentLoaded', () => {
         logoutBtn.addEventListener('click', () => {
           window.KabarApi.logoutUser();
           renderUserNav();
+          prefillCheckoutUser();
           showToast('আপনি লগআউট করেছেন');
         });
       }
